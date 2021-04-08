@@ -33,6 +33,7 @@ rectangle Sistema_de_Librería {
     (Seleccionar Amigo) as seleccionar_amigo
     agregar_amigo ..> seleccionar_amigo :<<includes>>
     eliminar_amigo ..> seleccionar_amigo :<<includes>>
+    recomendar ..> seleccionar_amigo :<<includes>>
 
     together {
         (Buscar Libro) as buscar
