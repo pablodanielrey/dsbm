@@ -49,18 +49,17 @@ rectangle Sistema_de_Librería {
 
 
     (Consultar Compras) as consultar_compras
-        
     together {
-        (Comprar) as comprar    
+        (Comprar) as comprar 
         (Comprar en Stock) as comprar_stock
         (Pre Compra) as pre_compra
+        (Calcular Costo) as calcular_costo
     }
 
     (Cambiar Categoría Cliente) as cambiar_categoria
 
-    (Cancelar Compra) as cancelar_compra
     together {
-        
+        (Cancelar Compra) as cancelar_compra
         (Cancelar Compra en Stock) as cancelar_compra_stock
         (Cancelar Pre-Compra) as cancelar_pre_compra
     }
@@ -74,11 +73,13 @@ comprar <.. cambiar_categoria :<<extends>>
 comprar <|-- pre_compra
 comprar <|-- comprar_stock
 comprar ..> actualizar_saldo :<<includes>>
+comprar ..> calcular_costo :<<includes>>
 
 cancelar_compra <|-down- cancelar_pre_compra
 cancelar_compra <|-down- cancelar_compra_stock
 cancelar_compra ..> actualizar_saldo :<<includes>>
 
+t --> cambiar_categoria
 p --> registrar_cliente
 e --> ingresar_libro
 c --> configurar_preferencias
@@ -89,7 +90,7 @@ c --> buscar
 c --> comprar
 c --> consultar_compras
 c --> cancelar_compra
-t --> cambiar_categoria
+
 
 ingresar_libro <.. notificar :<<extends>>
 
