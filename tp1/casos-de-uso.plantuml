@@ -1,0 +1,96 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+together {
+
+    :Persona: as p
+    :Empleado: as e
+    :Timer: as t
+    :Cliente: as c
+
+    t -[hidden]l- c
+
+    together {
+        :Cliente VIP: as vc
+        :Cliente Normal: as cn
+        cn -[hidden]- vc
+        vc -|> c
+        cn -|> c
+    }
+    
+}
+
+rectangle Sistema_de_Librería {
+    (Registrar Cliente) as registrar_cliente
+
+    (Configurar Preferencias) as configurar_preferencias
+    
+    
+    (Recomendar Libro) as recomendar
+    (Agregar Amigo) as agregar_amigo
+    (Eliminar Amigo) as eliminar_amigo
+    (Seleccionar Amigo) as seleccionar_amigo
+    agregar_amigo ..> seleccionar_amigo :<<includes>>
+    eliminar_amigo ..> seleccionar_amigo :<<includes>>
+
+    together {
+        (Buscar Libro) as buscar
+        (Buscar por Autor) as buscar_por_autor
+        (buscar por Título) as buscar_por_titulo
+        (buscar por Editorial) as buscar_por_editorial
+        (buscar por Género) as buscar_por_genero
+        buscar <|-- buscar_por_autor
+        buscar <|-- buscar_por_titulo
+        buscar <|-- buscar_por_genero
+        buscar <|-- buscar_por_editorial
+    }
+
+
+    (Consultar Compras) as consultar_compras
+        
+    together {
+        (Comprar) as comprar    
+        (Comprar en Stock) as comprar_stock
+        (Pre Compra) as pre_compra
+    }
+
+    (Cambiar Categoría Cliente) as cambiar_categoria
+
+    (Cancelar Compra) as cancelar_compra
+    together {
+        
+        (Cancelar Compra en Stock) as cancelar_compra_stock
+        (Cancelar Pre-Compra) as cancelar_pre_compra
+    }
+    (Actualizar Saldo) as actualizar_saldo 
+
+    (Ingresar Libro) as ingresar_libro
+    (Notificar Cliente) as notificar
+}
+
+comprar <.. cambiar_categoria :<<extends>>
+comprar <|-- pre_compra
+comprar <|-- comprar_stock
+comprar ..> actualizar_saldo :<<includes>>
+
+cancelar_compra <|-down- cancelar_pre_compra
+cancelar_compra <|-down- cancelar_compra_stock
+cancelar_compra ..> actualizar_saldo :<<includes>>
+
+p --> registrar_cliente
+e --> ingresar_libro
+c --> configurar_preferencias
+c --> recomendar
+c --> agregar_amigo
+c --> eliminar_amigo
+c --> buscar
+c --> comprar
+c --> consultar_compras
+c --> cancelar_compra
+t --> cambiar_categoria
+
+ingresar_libro <.. notificar :<<extends>>
+
+
+@enduml
