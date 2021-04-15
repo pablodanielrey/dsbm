@@ -22,62 +22,64 @@ together {
 }
 
 rectangle Sistema_de_Librería {
-    (Registrar Cliente) as registrar_cliente
+    (c1 - Registrar Cliente) as c1
+    (c2 - Configurar Preferencias) as c2
 
-    (Configurar Preferencias) as configurar_preferencias
-    
-    
-    (Recomendar Libro) as recomendar
-    (Agregar Amigo) as agregar_amigo
-    (Eliminar Amigo) as eliminar_amigo
-    (Seleccionar Amigo) as seleccionar_amigo
-    agregar_amigo ..> seleccionar_amigo :<<includes>>
-    eliminar_amigo ..> seleccionar_amigo :<<includes>>
-    recomendar ..> seleccionar_amigo :<<includes>>
+    (c3 - Recomendar Libro) as c3
+    (c4 - Agregar Amigo) as c4
+    (c5 - Eliminar Amigo) as c5
+    (c6 - Seleccionar Amigo) as c6
+    c4 ..> c6 :<<includes>>
+    c5 ..> c6 :<<includes>>
+    c3 ..> c6 :<<includes>>
 
-    (Buscar Libro) as buscar
-    (Consultar Compras) as consultar_compras
+    (c7 - Buscar Libro) as c7
+    (c8 - Consultar Compras) as c8
 
-    (Actualizar Stock) as actualizar_stock
-    (Reservar Libro) as reservar
-    reservar ..> actualizar_stock :<<includes>>
+    (c9 - Actualizar Stock) as c9
+    (c10 - Actualizar Stock Pre-Venta) as c10
+    (c11 - Reservar Libro) as c11
     together {
-        (Comprar) as comprar 
-        (Calcular Costo) as calcular_costo
+        (c12 - Comprar) as c12 
+        (c13 - Calcular Costo) as c13
     }
 
-    (Cambiar Categoría Cliente) as cambiar_categoria
+    (c14 - Cambiar Categoría Cliente) as c14
 
-    (Cancelar Compra) as cancelar_compra
-    (Cancelar Reserva) as cancelar_reserva
+    (c15 - Cancelar Compra) as c15
+    (c16 - Cancelar Reserva) as c16
 
 
-    (Ingresar Libro) as ingresar_libro
-    (Notificar Cliente) as notificar
+    (c17 - Ingresar Libro) as c17
+    (c18 - Notificar Cliente) as c18
 }
 
-comprar <.. cambiar_categoria :<<extends>>
-comprar ..> actualizar_stock :<<includes>>
-comprar ..> calcular_costo :<<includes>>
+c12 <.. c14 :<<extends>>
+c12 ..> c9 :<<includes>>
+c12 ..> c13 :<<includes>>
 
-cancelar_compra ..> actualizar_stock :<<includes>>
+c17 ..> c9 :<<includes>>
 
-t --> cambiar_categoria
-p --> registrar_cliente
-e --> ingresar_libro
-c --> configurar_preferencias
-c --> recomendar
-c --> agregar_amigo
-c --> eliminar_amigo
-c --> buscar
-c --> comprar
-c --> consultar_compras
-c --> cancelar_compra
-c --> reservar
-c --> cancelar_reserva
+c15 ..> c9 :<<includes>>
+c11 ..> c10 : <<includes>>
+c16 ..> c10: <<includes>>
+
+t --> c14
+p --> c1
+e --> c17
+c --> c2
+c --> c3
+c --> c4
+c --> c5
+c --> c7
+c --> c12
+c --> c8
+c --> c15
+c --> c11
+c --> c16
 
 
-ingresar_libro <.. notificar :<<extends>>
+c17 <.. c18 :<<extends>>
 
 
 @enduml
