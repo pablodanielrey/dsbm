@@ -1,0 +1,98 @@
+@startuml
+
+together {
+    class Persona
+    class Cliente {
+        nombre
+        apellido
+        dirección
+        país
+        ciudad
+        cp
+        email
+        teléfono
+        crédito
+    }
+    class ClienteNormal
+    Class ClienteVIP
+}
+
+class Preferencias {
+    notificar
+    género
+    autor
+    autores_comprados
+    generos_comprados
+}
+
+together {
+    class Libro {
+        título
+        idbn
+        género
+        precio_base
+        editorial
+    }
+    class Digital {
+        licencias
+    }
+    class Impreso {
+        copias
+    }
+}
+
+
+class Lanzamiento {
+    fecha
+    ejemplares
+    limite_de_ejemplares_a_reservar
+}
+
+class Compra {
+    fecha
+    costo
+    cancelada
+}
+class CompraStock {
+}
+class Reserva {
+}
+
+
+class Ingreso {
+    cantidad
+}
+
+class Oferta {
+    lazamiento
+    temporada
+    reedicion
+    últimos_volúmenes
+}
+
+class Recomendacion
+
+Compra - Libro : libro
+Compra -d- CompraStock
+Compra -d- Reserva
+
+
+Libro -- Persona : autor
+Persona -d- Cliente
+Cliente -d- ClienteNormal
+Cliente -d- ClienteVIP
+
+Cliente -l- Compra : realiza
+Cliente -d- Preferencias
+Cliente - Cliente : amigo
+Cliente -d- Recomendacion : recomienda
+Cliente -d- Recomendacion : a
+Recomendacion - Libro : libro
+
+Libro -d- Digital
+Libro -d- Impreso
+Libro -d- Lanzamiento
+Libro - Ingreso
+
+
+@enduml
