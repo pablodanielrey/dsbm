@@ -52,6 +52,7 @@ rectangle Sistema_de_Librería {
 
     (c17 - Ingresar Libro) as c17
     (c18 - Notificar Cliente) as c18
+    (c19 - Visualizar Compras) as c19
 }
 
 c12 <.. c14 :<<extends>>
@@ -77,6 +78,7 @@ c --> c8
 c --> c15
 c --> c11
 c --> c16
+c --> c19
 
 
 c17 <.. c18 :<<extends>>
