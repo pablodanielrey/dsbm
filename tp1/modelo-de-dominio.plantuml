@@ -30,7 +30,6 @@ together {
         título
         idbn
         género
-        precio_base
         editorial
     }
     class Digital {
@@ -45,7 +44,7 @@ together {
 class Lanzamiento {
     fecha
     ejemplares
-    limite_de_ejemplares_a_reservar
+    limite_reservas
 }
 
 class Compra {
@@ -60,7 +59,9 @@ class Reserva {
 
 
 class Ingreso {
+    fecha
     cantidad
+    precio
 }
 
 class Oferta {
