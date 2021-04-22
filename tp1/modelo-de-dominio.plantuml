@@ -1,99 +1,101 @@
 @startuml
 
-together {
-    class Persona
-    class Cliente {
-        nombre
-        apellido
-        dirección
-        país
-        ciudad
-        cp
-        email
-        teléfono
-        crédito
-    }
-    class ClienteNormal
-    Class ClienteVIP
+object Oferta {
+    lazamiento: int
+    temporada: int
+    reedicion: int
+    últimos_volúmenes: int
 }
 
-class Preferencias {
-    notificar
-    género
-    autor
-    autores_comprados
-    generos_comprados
-}
 
 together {
-    class Libro {
-        título
-        idbn
-        género
-        editorial
+    object Persona
+    object Cliente {
+        nombre: str
+        apellido: str
+        dirección: str
+        país: str
+        ciudad: str
+        cp: str
+        email: str
+        teléfono: str
+        crédito: float
     }
-    class Digital {
-        licencias
+    object ClienteNormal
+    object ClienteVIP
+}
+
+object Preferencias {
+    notificar: bool
+    género: str
+    autor: str
+    autores_comprados: bool
+    generos_comprados: bool
+}
+
+together {
+    object Libro {
+        título: str
+        idbn: str
+        género: str
+        editorial: str
     }
-    class Impreso {
-        copias
+    object Digital {
+        licencias: int
+    }
+    object Impreso {
+        copias: int
     }
 }
 
 
-class Lanzamiento {
-    fecha
-    ejemplares
-    limite_reservas
+object Lanzamiento {
+    fecha: date
+    ejemplares: int
+    limite_reservas: int
 }
 
-class Compra {
-    fecha
-    costo
-    cancelada
+object Compra {
+    fecha: date
+    costo: float
+    cancelada: bool
 }
-class CompraStock {
+object CompraStock {
 }
-class Reserva {
-}
-
-
-class Ingreso {
-    fecha
-    cantidad
-    precio
+object Reserva {
 }
 
-class Oferta {
-    lazamiento
-    temporada
-    reedicion
-    últimos_volúmenes
+
+object Ingreso {
+    fecha: date
+    cantidad: int
+    precio: float
 }
 
-class Recomendacion
 
-Compra - Libro : libro
+object Recomendacion
+
+Compra - "1" Libro : libro
 Compra -d- CompraStock
 Compra -d- Reserva
 
 
-Libro -- Persona : autor
+Libro -- "*" Persona : autores
 Persona -d- Cliente
 Cliente -d- ClienteNormal
 Cliente -d- ClienteVIP
 
-Cliente -l- Compra : realiza
-Cliente -d- Preferencias
-Cliente - Cliente : amigo
-Cliente -d- Recomendacion : recomienda
-Cliente -d- Recomendacion : a
-Recomendacion - Libro : libro
+Cliente -l- "*" Compra : realiza
+Cliente -d- "1" Preferencias
+Cliente - "*" Cliente : amigo
+Cliente -d- "1" Recomendacion : recomienda
+Recomendacion -u- "1" Cliente : a
+Recomendacion -l- "1" Libro : libro
 
 Libro -d- Digital
 Libro -d- Impreso
-Libro -d- Lanzamiento
-Libro - Ingreso
 
+Ingreso -d- "1" Libro
+Lanzamiento -d- "1" Libro
 
 @enduml
