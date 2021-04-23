@@ -9,10 +9,11 @@ object Oferta {
 
 
 together {
-    'object Persona
-    object Cliente {
+    object Persona {
         nombre: str
         apellido: str
+    }
+    object Cliente {
         dirección: str
         país: str
         ciudad: str
@@ -22,9 +23,7 @@ together {
         crédito: float
     }
 
-    object Categoría {
-        activa: bool
-    }
+    object Categoría
     object ClienteNormal
     object ClienteVIP
 }
@@ -41,9 +40,6 @@ together {
     object Libro {
         título: str
         idbn: str
-        género: str
-        editorial: str
-        autor: str
     }
     object Digital {
         licencias: int
@@ -51,11 +47,18 @@ together {
     object Impreso {
         copias: int
     }
+    object Genero {
+        nombre: str
+    }
+    object Editorial {
+        nombre: str
+    }
 }
 
 
 object Lanzamiento {
-    fecha: date
+    fecha_inicio: date
+    fecha_lanzamiento: date
     ejemplares: int
     limite_reservas: int
 }
@@ -69,6 +72,7 @@ object CompraStock {
 }
 object Reserva {
 }
+note bottom of Reserva: La reserva esta modelada como un tipo de compra
 
 
 object Ingreso {
@@ -76,10 +80,11 @@ object Ingreso {
     cantidad: int
     precio: float
 }
-note top of Ingreso: "el ingreso es de libros físicos? o digitales tambien?"
-
 
 object Recomendacion
+
+object Notificación
+
 
 /'
 object Inventario
@@ -96,32 +101,37 @@ Inventario -u- StockFisico
 StockFisico -u- "1" Impreso : en_stock
 '/
 
-Compra - "1" Libro : libro
+Cliente -d-> "1" Preferencias : pref
+
+
+Compra -> "*" Libro : libro
 Compra -d- CompraStock
 Compra -d- Reserva
 
 
-'Libro -- "*" Persona : autores
-'Persona -d- Cliente
+Libro --> "*" Persona : autores
+Libro --> "*" Genero: genero
+Libro --> "1" Editorial: editorial
 
-Cliente -d- "1" Categoría : tiene
-Categoría -d- ClienteNormal
-Categoría -d- ClienteVIP
+Persona -d-> Cliente
+Cliente -d-> "1" Categoría : es
+Categoría -d-> ClienteNormal
+Categoría -d-> ClienteVIP
 
-Cliente --- "*" Compra : realiza
-Cliente -u- "1" Preferencias
-Cliente - "*" Cliente : amigo
-Cliente -- "1" Recomendacion : recomienda
-Recomendacion -- "1" Cliente : a
-Recomendacion -l- "1" Libro : libro
+Cliente ---> "*" Compra : realiza
+Cliente -> "*" Cliente : amigo
+Cliente -u-> "1" Recomendacion : recomienda
+Recomendacion --> "1" Cliente : a
+Recomendacion -l-> "1" Libro : libro
 
 
 Libro -d- Digital
 Libro -d- Impreso
 
+Ingreso -d-> "1" Libro
+Lanzamiento -d-> "1" Libro
 
-
-Ingreso -d- "1" Libro
-Lanzamiento -d- "1" Libro
+Notificación -> "1" Cliente
+Notificación -> "1" Lanzamiento
 
 @enduml
