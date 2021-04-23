@@ -9,7 +9,7 @@ object Oferta {
 
 
 together {
-    object Persona
+    'object Persona
     object Cliente {
         nombre: str
         apellido: str
@@ -20,6 +20,10 @@ together {
         email: str
         teléfono: str
         crédito: float
+    }
+
+    object Categoría {
+        activa: bool
     }
     object ClienteNormal
     object ClienteVIP
@@ -39,6 +43,7 @@ together {
         idbn: str
         género: str
         editorial: str
+        autor: str
     }
     object Digital {
         licencias: int
@@ -71,29 +76,50 @@ object Ingreso {
     cantidad: int
     precio: float
 }
+note top of Ingreso: "el ingreso es de libros físicos? o digitales tambien?"
 
 
 object Recomendacion
+
+/'
+object Inventario
+object StockDigital {
+    licencias: int
+}
+object StockFisico {
+    copias: int
+}
+
+Inventario -u- StockDigital
+StockDigital -u- "1" Digital : en_stock
+Inventario -u- StockFisico
+StockFisico -u- "1" Impreso : en_stock
+'/
 
 Compra - "1" Libro : libro
 Compra -d- CompraStock
 Compra -d- Reserva
 
 
-Libro -- "*" Persona : autores
-Persona -d- Cliente
-Cliente -d- ClienteNormal
-Cliente -d- ClienteVIP
+'Libro -- "*" Persona : autores
+'Persona -d- Cliente
 
-Cliente -l- "*" Compra : realiza
-Cliente -d- "1" Preferencias
+Cliente -d- "1" Categoría : tiene
+Categoría -d- ClienteNormal
+Categoría -d- ClienteVIP
+
+Cliente --- "*" Compra : realiza
+Cliente -u- "1" Preferencias
 Cliente - "*" Cliente : amigo
-Cliente -d- "1" Recomendacion : recomienda
-Recomendacion -u- "1" Cliente : a
+Cliente -- "1" Recomendacion : recomienda
+Recomendacion -- "1" Cliente : a
 Recomendacion -l- "1" Libro : libro
+
 
 Libro -d- Digital
 Libro -d- Impreso
+
+
 
 Ingreso -d- "1" Libro
 Lanzamiento -d- "1" Libro

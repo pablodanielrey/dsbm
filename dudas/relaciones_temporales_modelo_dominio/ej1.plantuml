@@ -1,0 +1,98 @@
+@startuml
+
+
+
+
+package "Asociación" {
+    object Cliente {
+        nombre: str
+        apellido: str
+        dirección: str
+        país: str
+        ciudad: str
+        cp: str
+        email: str
+        teléfono: str
+        crédito: float
+    }
+
+    together {
+        object Categoría
+        object ClienteNormal
+        object ClienteVIP
+    }
+
+    Cliente --- "1" Categoría
+    note on link : "cardinalidad = 1 o = 2?"
+
+    Categoría -d- ClienteNormal
+    Categoría -d- ClienteVIP
+}
+
+package "Multiples Categorías con activa?" {
+    object Cliente4 {
+        nombre: str
+        apellido: str
+        dirección: str
+        país: str
+        ciudad: str
+        cp: str
+        email: str
+        teléfono: str
+        crédito: float
+    }
+
+    together {
+        object Categoría4 {
+            fecha: date
+            activa: bool
+        }
+        object ClienteNormal4
+        object ClienteVIP4
+    }
+
+    Cliente4 --- "*" Categoría4
+    Categoría4 -d- ClienteNormal4
+    Categoría4 -d- ClienteVIP4
+}
+
+package "Con herencia?" {
+    object Cliente2 {
+        nombre: str
+        apellido: str
+        dirección: str
+        país: str
+        ciudad: str
+        cp: str
+        email: str
+        teléfono: str
+        crédito: float
+    }
+    note top of Cliente2: "como represento que puede cambiar?"
+
+    object ClienteNormal2
+    object ClienteVIP2
+
+    Cliente2 -d- ClienteNormal2
+    Cliente2 -d- ClienteVIP2
+
+}
+
+package "Un atributo" {
+    object Cliente3 {
+        nombre: str
+        apellido: str
+        dirección: str
+        país: str
+        ciudad: str
+        cp: str
+        email: str
+        teléfono: str
+        crédito: float
+        categoría: string
+    }
+}
+
+
+
+@enduml
