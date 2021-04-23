@@ -24,11 +24,11 @@ package "con stock dentro de libro" {
     Libro -d- Digital
     Libro -d- Impreso
 
-    Ingreso -d- "1" Libro
+    Ingreso -d-> "1" Libro
 }
 
 package "stock fuera de libro" {
-    note "con testa opción no ganaría nada" as n1
+    note "me gusta mas esta\nmodelaría el tipo por herencia y con el libro por composición\ny el stock completamente fuera del libro" as n1
     object Libro1 {
         título: str
         idbn: str
@@ -50,14 +50,14 @@ package "stock fuera de libro" {
         precio: float
     }
 
-    Libro1 - "1" TipoLibro1
+    Libro1 -> "1" TipoLibro1
 
     TipoLibro1 -d- Digital1
     TipoLibro1 -d- Impreso1
 
-    Ingreso1 -d- "1" Libro1
+    Ingreso1 -d-> "1" Libro1
 
-    Stock1 - "1" Libro1
+    Stock1 -> "1" Libro1
 }
 
 
