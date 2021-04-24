@@ -1,0 +1,47 @@
+@startuml
+
+
+title c12 Comprar Libro
+
+actor Cliente as c
+participant Sistema as s
+
+c -> s : libros = iniciar_compra(cliente)
+activate c
+    activate s
+            c -> s : seleccionar_libro(libro)
+
+            s -> s : calcular_costo(libro)
+            activate s
+            deactivate s
+
+            c <- s : obtener_informacion_pago()
+            activate c
+                c -> s : pago(info)
+            deactivate c
+
+            s -> s : actualizar_stock(libro)
+            activate s
+            deactivate s            
+
+
+            s -> s : descontar_costo(libro)
+            activate s
+            deactivate s
+
+
+            s -> s : cambiar_categoria_cliente(cliente)
+            activate s
+            deactivate s
+
+            s -> s : guardar_datos_compra(cliente, libro)
+            activate s
+            deactivate s
+
+            c <-- s : datos_compra
+
+    deactivate s
+
+deactivate c
+
+@enduml

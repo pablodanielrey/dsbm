@@ -1,0 +1,19 @@
+@startuml
+
+
+title c12 Comprar Libro - Flujo alternativo - Libros no disponibles
+
+actor Cliente as c
+participant Sistema as s
+
+c -> s : libros = iniciar_compra(cliente)
+activate c
+    activate s
+
+        c <-- s : libros_no_disponibles
+
+    deactivate s
+
+deactivate c
+
+@enduml
