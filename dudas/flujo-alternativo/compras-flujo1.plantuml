@@ -16,7 +16,7 @@ deactivate c
 
 @enduml
 
-@startuml
+@startuml compra_libro1
 
 title c12 Comprar Libro - Flujo alternativo - Libros no disponibles
 
@@ -36,7 +36,7 @@ deactivate c
 
 @enduml
 
-@startuml
+@startuml compra_libro2
 
 
 title c12 Comprar Libro - Flujo alternativo - Libros no disponibles
@@ -60,7 +60,7 @@ deactivate c
 @enduml
 
 
-@startuml
+@startuml compra_libro3
 
 
 title c12 Comprar Libro
