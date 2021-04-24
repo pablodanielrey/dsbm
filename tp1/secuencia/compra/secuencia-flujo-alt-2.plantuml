@@ -21,12 +21,12 @@ activate c
             c -> s : pago(info)
         deactivate c
 
-        s -> s : actualizar_stock(libro)
+        s -> s : ok = actualizar_stock(libro)
         activate s
         deactivate s            
 
 
-        c <-- s : stock_insuficiente
+        c <-- s : [not ok] stock_insuficiente
 
     deactivate s
 

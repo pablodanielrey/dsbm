@@ -1,7 +1,7 @@
 @startuml
 
 
-title c12 Comprar Libro
+title c12 Comprar Libro - Flujo normal
 
 actor Cliente as c
 participant Sistema as s
@@ -11,7 +11,7 @@ activate c
     activate s
             c -> s : seleccionar_libro(libro)
 
-            s -> s : calcular_costo(libro)
+            s -> s : ok = calcular_costo(libro)
             activate s
             deactivate s
 
@@ -20,21 +20,19 @@ activate c
                 c -> s : pago(info)
             deactivate c
 
-            s -> s : actualizar_stock(libro)
+            s -> s : ok = actualizar_stock(libro)
             activate s
             deactivate s            
 
-
-            s -> s : descontar_costo(libro)
+            s -> s : ok = descontar_costo(libro)
             activate s
             deactivate s
 
-
-            s -> s : cambiar_categoria_cliente(cliente)
+            s -> s : ok = cambiar_categoria_cliente(cliente)
             activate s
             deactivate s
 
-            s -> s : guardar_datos_compra(cliente, libro)
+            s -> s : ok = guardar_datos_compra(cliente, libro)
             activate s
             deactivate s
 

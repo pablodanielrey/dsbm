@@ -27,17 +27,16 @@ activate c
         deactivate s            
 
 
-        s -> s : descontar_costo(libro)
+        s -> s : ok = descontar_costo(libro)
         activate s
         deactivate s
 
 
-        s -> s : cancelar_compra(libro)
+        s -> s : [not ok] cancelar_compra(libro)
         activate s
             s -> s : actualizar_stock(libro)
+            c <-- s : crédito_insuficiente
         deactivate s
-        c <-- s : crédito_insuficiente
-
 
         
         
