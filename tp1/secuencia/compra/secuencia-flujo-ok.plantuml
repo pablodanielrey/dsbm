@@ -186,6 +186,10 @@ activate s
     activate s
     deactivate s
 
+    s -> s : compra = generar_compra()
+    activate s
+    deactivate s
+
     c <-- s : datos_compra
 deactivate s
 
