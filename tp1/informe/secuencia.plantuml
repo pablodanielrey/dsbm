@@ -1,0 +1,43 @@
+@startuml
+
+actor actor
+participant instanciaC as c <<ClassC>>
+participant instanciaB as b <<ClassB>>
+
+actor -> c : m1(p1)
+activate c
+    c -> b : obtener_datos()
+    activate b
+        alt datos < 10
+            c -> c : algo1()
+        else datos <= 10
+            c -> b : algo2()
+        end
+        return datos
+    deactivate b
+
+    actor <-- c : datos
+deactivate c
+
+@enduml
+
+@startuml
+
+actor actor
+participant instanciaC as c <<ClassC>>
+participant instanciaB as b <<ClassB>>
+
+actor -> c : m1(p1)
+activate c
+    c -> b : obtener_datos()
+    activate b
+        loop datos <= 10
+            c -> c : algo1()
+        end
+        return datos
+    deactivate b
+
+    actor <-- c : datos
+deactivate c
+
+@enduml
