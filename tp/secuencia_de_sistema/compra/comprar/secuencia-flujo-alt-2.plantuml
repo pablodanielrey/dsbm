@@ -1,0 +1,35 @@
+@startuml
+
+
+title c12 Comprar Libro - Fujo alternativo - Libro no disponible
+
+actor Cliente as c
+participant Sistema as s
+
+activate c
+c -> s : libros = iniciar_compra(cliente)
+activate s
+    s -> s : libros = buscar_libros_disponibles()
+    return libros
+deactivate s
+
+c -> s : seleccionar_libro(libro)
+activate s
+    s -> s : costo = calcular_costo(cliente, libro)
+    activate s
+    deactivate s
+    return obtener_informacion_pago
+deactivate s
+
+c -> s : enviar_info_pago(info)
+activate s
+    s -> s : ok = actualizar_stock(libro)
+    activate s
+    deactivate s
+
+    return [not ok]
+deactivate s
+
+deactivate c
+
+@enduml

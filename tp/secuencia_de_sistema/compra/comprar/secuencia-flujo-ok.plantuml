@@ -1,7 +1,63 @@
+
+
+@startuml c12 Comprar Libro - Flujo normal
+
+title c12 Comprar Libro - Flujo normal
+
+actor Cliente as c
+participant Sistema as s
+
+activate c
+c -> s : libros = iniciar_compra(cliente)
+activate s
+    s -> s : libros = buscar_libros_disponibles()
+    return libros
+deactivate s
+
+c -> s : seleccionar_libro(libro)
+activate s
+    s -> s : costo = calcular_costo(cliente, libro)
+    activate s
+    deactivate s
+    return obtener_informacion_pago
+deactivate s
+
+c -> s : enviar_info_pago(info)
+activate s
+    s -> s : ok = actualizar_stock(libro)
+    activate s
+    deactivate s            
+
+    s -> s : ok = cobrar_libro(cliente, costo, info)
+    activate s
+    deactivate s
+
+    s -> s : ok = cambiar_categoria_cliente(cliente)
+    activate s
+    deactivate s
+
+    s -> s : compra = crear_compra(cliente, libro)
+    activate s
+    deactivate s
+
+    c <-- s : datos_compra
+deactivate s
+
+
+deactivate c
+
+@enduml
+
+
+
+
+
+
+
 @startuml
 
 
-title c12 Comprar Libro - Flujo normal
+title c12 Comprar Libro - Flujo normal alt2
 
 actor Cliente as c
 participant Sistema as s
@@ -94,55 +150,7 @@ deactivate c
 
 @enduml
 
-@startuml alternativa4
 
-
-title c12 Comprar Libro - Flujo normal
-
-actor Cliente as c
-participant Sistema as s
-
-activate c
-c -> s : libros = iniciar_compra(cliente)
-activate s
-deactivate s
-
-c -> s : seleccionar_libro(libro)
-activate s
-    s -> s : ok = calcular_costo(libro)
-    activate s
-    deactivate s
-    c <- s : obtener_informacion_pago
-deactivate s
-
-activate c
-    c -> s : enviar_info_pago(info)
-deactivate c
-
-activate s
-    s -> s : ok = actualizar_stock(libro)
-    activate s
-    deactivate s            
-
-    s -> s : ok = descontar_costo(libro)
-    activate s
-    deactivate s
-
-    s -> s : ok = cambiar_categoria_cliente(cliente)
-    activate s
-    deactivate s
-
-    s -> s : ok = guardar_datos_compra(cliente, libro)
-    activate s
-    deactivate s
-
-    c <-- s : datos_compra
-deactivate s
-
-
-deactivate c
-
-@enduml
 
 @startuml alternativa5
 

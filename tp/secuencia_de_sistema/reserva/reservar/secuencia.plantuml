@@ -1,0 +1,34 @@
+@startuml
+title c10 Reservar Libro
+
+actor Cliente as c
+participant Sistema as s
+
+c -> s : libros = reservar_libro(cliente)
+activate c
+    activate s
+        s -> s : libros = buscar_libros()
+        alt len(libros) <= 0
+            c <-- s : []
+            
+        else len(libros) > 0
+            c <-- s : libros
+
+            c -> s : seleccionar_libro(libro)
+            activate s
+                s -> s : ok = actualizar_stock(libro)
+                alt ok == False
+                    c <-- s : error
+                else ok == True
+                    s -> s : reserva = generar_reserva(libro)
+                    c <-- s : reserva
+                end
+            deactivate s
+        end
+    deactivate s
+
+
+deactivate c
+
+@enduml
+

@@ -9,11 +9,9 @@ participant Sistema as s
 c -> s : libros = iniciar_compra(cliente)
 activate c
     activate s
-
-        c <-- s : libros_no_disponibles
-
+        s -> s : libros = buscar_libros_disponibles()
+        return []
     deactivate s
-
 deactivate c
 
 @enduml

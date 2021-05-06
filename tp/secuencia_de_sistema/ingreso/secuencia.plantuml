@@ -1,0 +1,27 @@
+@startuml
+
+
+title c17 Ingresar Libro
+
+actor Empleado as e
+participant Sistema as s
+
+e -> s : ingresar_libro(empleado)
+activate e
+    activate s
+    deactivate s
+
+    e -> s : datos_libro(datos_libro)
+    activate s
+        s -> s : libro = crear_o_buscar_libro(datos_libro)
+        note right: aca se encuentran los 2 flujos\nel flujo normal y el alternativo 3.1
+
+        s -> s : actualizar_stock(libro)
+        s -> s : notificar_clientes(libro)
+        return 
+    deactivate s
+deactivate e
+
+
+
+@enduml

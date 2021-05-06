@@ -1,0 +1,44 @@
+@startuml
+
+
+title c12 Comprar Libro - Flujo alternativo - Crédito Insuficiente
+
+actor Cliente as c
+participant Sistema as s
+
+
+activate c
+c -> s : libros = iniciar_compra(cliente)
+activate s
+    s -> s : libros = buscar_libros_disponibles()
+    return libros
+deactivate s
+
+c -> s : seleccionar_libro(libro)
+activate s
+    s -> s : costo = calcular_costo(cliente, libro)
+    activate s
+    deactivate s
+    return obtener_informacion_pago
+deactivate s
+
+c -> s : enviar_info_pago(info)
+activate s
+    s -> s : ok = actualizar_stock(libro)
+    activate s
+    deactivate s            
+
+    s -> s : cobro_ok = cobrar_libro(cliente, costo, info)
+    activate s
+    deactivate s
+
+    s -> s : [cobro_ok == False] ok = actualizar_stock(libro)
+    activate s
+    deactivate s
+
+    return : crédito_insuficiente
+deactivate s
+
+deactivate c
+
+@enduml

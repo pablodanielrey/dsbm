@@ -1,0 +1,25 @@
+@startuml
+
+
+title c15 Cancelar Compra
+
+actor Cliente as c
+participant Sistema as s
+
+c -> s : libros = cancelar_compra(cliente)
+activate c
+    activate s
+    s -> s : compras = buscar_compras_a_cancelar()
+    return compras
+    deactivate s
+
+    c -> s : seleccionar_compra(compra)
+    activate s
+        s -> s : actualizar_stock(compra)
+        s -> s : cancelar_compra(compra)
+        return
+    deactivate s
+
+deactivate c
+
+@enduml

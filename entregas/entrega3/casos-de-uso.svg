@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1111px" preserveAspectRatio="none" style="width:1484px;height:1111px;" version="1.1" viewBox="0 0 1484 1111" width="1484px" zoomAndPan="magnify"><defs><filter height="300%" id="f2zes8mzehldf" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[77b4ba1a0584212169c42834999182cd]
+cluster Sistema_de_Librería--><rect fill="#FFFFFF" filter="url(#f2zes8mzehldf)" height="1085" style="stroke:#000000;stroke-width:1.5;" width="993" x="479" y="14.6306"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="156" x="897.5" y="29.6257">Sistema_de_Librería</text><!--MD5=[be5750da26e06623bc49653cefaf97c7]
+entity p--><ellipse cx="56" cy="776.6306" fill="#FEFECE" filter="url(#f2zes8mzehldf)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M56,784.6306 L56,811.6306 M43,792.6306 L69,792.6306 M56,811.6306 L43,826.6306 M56,811.6306 L69,826.6306 " fill="none" filter="url(#f2zes8mzehldf)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="27.5" y="845.1257">Persona</text><!--MD5=[e32773a0da76c445e84e5885468a4484]
+entity e--><ellipse cx="56" cy="892.6306" fill="#FEFECE" filter="url(#f2zes8mzehldf)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M56,900.6306 L56,927.6306 M43,908.6306 L69,908.6306 M56,927.6306 L43,942.6306 M56,927.6306 L69,942.6306 " fill="none" filter="url(#f2zes8mzehldf)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69" x="21.5" y="961.1257">Empleado</text><!--MD5=[4b52362e67c82d91eba5cb75921775cc]
+entity t--><ellipse cx="389.5" cy="428.6306" fill="#FEFECE" filter="url(#f2zes8mzehldf)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M389.5,436.6306 L389.5,463.6306 M376.5,444.6306 L402.5,444.6306 M389.5,463.6306 L376.5,478.6306 M389.5,463.6306 L402.5,478.6306 " fill="none" filter="url(#f2zes8mzehldf)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39" x="370" y="497.1257">Timer</text><!--MD5=[8e9b2d9d80e066cced8e5d90e9bdea61]
+entity c--><ellipse cx="389.5" cy="544.6306" fill="#FEFECE" filter="url(#f2zes8mzehldf)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M389.5,552.6306 L389.5,579.6306 M376.5,560.6306 L402.5,560.6306 M389.5,579.6306 L376.5,594.6306 M389.5,579.6306 L402.5,594.6306 " fill="none" filter="url(#f2zes8mzehldf)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48" x="365.5" y="613.1257">Cliente</text><!--MD5=[6fa47a722a72b965bd621f330203bf5c]
+entity vc--><ellipse cx="389.5" cy="660.6306" fill="#FEFECE" filter="url(#f2zes8mzehldf)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M389.5,668.6306 L389.5,695.6306 M376.5,676.6306 L402.5,676.6306 M389.5,695.6306 L376.5,710.6306 M389.5,695.6306 L402.5,710.6306 " fill="none" filter="url(#f2zes8mzehldf)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73" x="353" y="729.1257">Cliente VIP</text><!--MD5=[702b1ceb5554c87b3986234b3de31273]
+entity cn--><ellipse cx="56" cy="660.6306" fill="#FEFECE" filter="url(#f2zes8mzehldf)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M56,668.6306 L56,695.6306 M43,676.6306 L69,676.6306 M56,695.6306 L43,710.6306 M56,695.6306 L69,710.6306 " fill="none" filter="url(#f2zes8mzehldf)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100" x="6" y="729.1257">Cliente Normal</text><ellipse cx="599.4996" cy="996.7305" fill="#FEFECE" filter="url(#f2zes8mzehldf)" rx="90.9996" ry="20.5999" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="144" x="527.4996" y="999.5772">c1 - Registrar Cliente</text><ellipse cx="599.3717" cy="689.5049" fill="#FEFECE" filter="url(#f2zes8mzehldf)" rx="112.3717" ry="24.8743" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="191" x="503.8717" y="692.3516">c2 - Configurar Preferencias</text><ellipse cx="599.3591" cy="771.8024" fill="#FEFECE" filter="url(#f2zes8mzehldf)" rx="96.3591" ry="21.6718" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="156" x="521.3591" y="774.6491">c3 - Recomendar Libro</text><ellipse cx="599.2932" cy="847.5892" fill="#FEFECE" filter="url(#f2zes8mzehldf)" rx="85.2932" ry="19.4586" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="131" x="533.7932" y="850.4359">c4 - Agregar Amigo</text><ellipse cx="599.3592" cy="921.5024" fill="#FEFECE" filter="url(#f2zes8mzehldf)" rx="84.8592" ry="19.3718" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="130" x="534.3592" y="924.3491">c5 - Eliminar Amigo</text><ellipse cx="1029.8093" cy="847.3925" fill="#FEFECE" filter="url(#f2zes8mzehldf)" rx="96.8093" ry="21.7619" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="157" x="951.3093" y="850.2391">c6 - Seleccionar Amigo</text><ellipse cx="599.5591" cy="218.7424" fill="#FEFECE" filter="url(#f2zes8mzehldf)" rx="78.5591" ry="18.1118" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="115" x="539.8328" y="222.2831">c7 - Buscar Libro</text><ellipse cx="599.5673" cy="293.8441" fill="#FEFECE" filter="url(#f2zes8mzehldf)" rx="99.0673" ry="22.2135" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="162" x="518.5673" y="296.6907">c8 - Consultar Compras</text><ellipse cx="1029.7915" cy="362.7889" fill="#FEFECE" filter="url(#f2zes8mzehldf)" rx="88.7915" ry="20.1583" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="139" x="960.2915" y="365.6356">c9 - Actualizar Stock</text><ellipse cx="1029.9468" cy="536.72" fill="#FEFECE" filter="url(#f2zes8mzehldf)" rx="125.9468" ry="27.5894" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="220" x="919.9468" y="539.5666">c10 - Actualizar Stock Pre-Venta</text><ellipse cx="599.4128" cy="449.6132" fill="#FEFECE" filter="url(#f2zes8mzehldf)" rx="87.9128" ry="19.9826" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="137" x="530.9128" y="452.4598">c11 - Reservar Libro</text><ellipse cx="1030.0326" cy="69.4371" fill="#FEFECE" filter="url(#f2zes8mzehldf)" rx="124.5326" ry="27.3065" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="217" x="921.5326" y="72.2838">c14 - Cambiar Categoría Cliente</text><ellipse cx="599.3093" cy="372.3925" fill="#FEFECE" filter="url(#f2zes8mzehldf)" rx="96.8093" ry="21.7619" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="157" x="520.8093" y="375.2391">c15 - Cancelar Compra</text><ellipse cx="599.711" cy="526.5728" fill="#FEFECE" filter="url(#f2zes8mzehldf)" rx="97.711" ry="21.9422" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="159" x="520.211" y="529.4195">c16 - Cancelar Reserva</text><ellipse cx="599.728" cy="1071.6762" fill="#FEFECE" filter="url(#f2zes8mzehldf)" rx="85.728" ry="19.5456" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="533.728" y="1074.5229">c17 - Ingresar Libro</text><ellipse cx="1029.8872" cy="1056.408" fill="#FEFECE" filter="url(#f2zes8mzehldf)" rx="91.8872" ry="20.7774" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="146" x="956.8872" y="1059.2547">c18 - Notificar Cliente</text><ellipse cx="599.7481" cy="606.4802" fill="#FEFECE" filter="url(#f2zes8mzehldf)" rx="102.2481" ry="22.8496" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="169" x="515.2481" y="609.3269">c19 - Visualizar Compras</text><ellipse cx="599.4293" cy="148.4165" fill="#FEFECE" filter="url(#f2zes8mzehldf)" rx="71.9293" ry="16.7859" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="98" x="547.4293" y="152.164">c12 - Comprar</text><ellipse cx="1367.3518" cy="151.701" fill="#FEFECE" filter="url(#f2zes8mzehldf)" rx="88.3518" ry="20.0704" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="138" x="1298.3518" y="154.5476">c13 - Calcular Costo</text><!--MD5=[725d2ac580865bec5960fbe07d66b5fe]
+link c to t--><!--MD5=[fe63c90fb66f3461568dfe3fec7bf10b]
+link cn to vc--><!--MD5=[bcbde8be178ef594fc133ed7d961eaa5]
+link vc to c--><path d="M389.5,650.8493 C389.5,645.9737 389.5,641.0981 389.5,636.2225 " fill="none" id="vc-to-c" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="382.5001,636.1782,389.5,616.1782,396.5001,636.1782,382.5001,636.1782" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[6e505870b189bb35f2319b67da54d48c]
+link cn to c--><path d="M92.1749,650.9607 C112.2567,632.8911 138.9194,615.6306 167.5,615.6306 C167.5,615.6306 167.5,615.6306 291.5,615.6306 C310.7559,615.6306 330.6672,608.929 347.4713,601.0119 " fill="none" id="cn-to-c" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="344.2735,594.7847,365.233,591.6697,350.7907,607.1753,344.2735,594.7847" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[bc8d8bbf40f246a7208f12cc40445245]
+link c4 to c6--><path d="M685.0677,847.6306 C754.8707,847.6306 853.6818,847.6306 927.6665,847.6306 " fill="none" id="c4-to-c6" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="932.9498,847.6306,923.9498,843.6306,927.9498,847.6306,923.9498,851.6306,932.9498,847.6306" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="68" x="774" y="843.6975">«includes»</text><!--MD5=[6e627be283daff838dd62b47d0f50d47]
+link c5 to c6--><path d="M667.714,909.9051 C743.5763,896.8649 866.1138,875.8015 947.3581,861.8362 " fill="none" id="c5-to-c6" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="952.6488,860.9267,943.1012,858.5094,947.7211,861.7738,944.4566,866.3937,952.6488,860.9267" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="68" x="774" y="876.6975">«includes»</text><!--MD5=[1eb275c68de92d9cb0d5a022aa705282]
+link c3 to c6--><path d="M675.4738,785.0429 C752.0016,798.5531 869.6906,819.3298 948.2224,833.1937 " fill="none" id="c3-to-c6" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="953.3377,834.0967,945.1703,828.5927,948.4139,833.2273,943.7793,836.4708,953.3377,834.0967" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="68" x="774" y="798.6975">«includes»</text><!--MD5=[a38009ebe9972e2bedb32fc2bd0731d3]
+reverse link c12 to c14--><path d="M661.7271,137.2115 C733.137,124.1072 851.0773,102.4643 934.2169,87.2075 " fill="none" id="c12-backto-c14" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="656.6671,138.14,666.2413,140.4497,661.585,137.2374,664.7972,132.5811,656.6671,138.14" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="67" x="774.5" y="100.6975">«extends»</text><!--MD5=[34d97a52cd3fcb3f7181ca2e5ab0d75a]
+link c12 to c9--><path d="M663.6746,156.4869 C679.7693,159.5702 696.7811,163.8148 712,169.6306 C827.2369,213.6674 947.5576,299.4459 1001.2122,340.1527 " fill="none" id="c12-to-c9" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1005.2687,343.2409,1000.5307,334.6066,1001.2904,340.2122,995.6848,340.9718,1005.2687,343.2409" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="68" x="774" y="193.6975">«includes»</text><!--MD5=[c19487b2b7064abdc11f11138e677aa4]
+link c12 to c13--><path d="M671.869,149.1482 C711.9813,149.3922 762.7521,149.6306 808,149.6306 C808,149.6306 808,149.6306 1217.5,149.6306 C1235.7115,149.6306 1255.1655,149.7798 1273.8246,149.9967 " fill="none" id="c12-to-c13" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1279.0647,150.0597,1270.1135,145.9517,1274.0651,149.9996,1270.0172,153.9512,1279.0647,150.0597" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="68" x="996" y="145.6975">«includes»</text><!--MD5=[c9c013650e72bb7221a8080220133718]
+link c17 to c9--><path d="M671.598,1060.9536 C686.9448,1055.4398 701.6285,1047.131 712,1034.6306 C843.4055,876.2525 668.609,752.9821 773,575.6306 C792.6594,542.231 812.7398,547.8451 843,523.6306 C902.2212,476.2412 968.9713,417.3932 1004.5105,385.6027 " fill="none" id="c17-to-c9" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="1008.2691,382.2373,998.8959,385.261,1004.5442,385.5727,1004.2325,391.2209,1008.2691,382.2373" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="68" x="774" y="519.6975">«includes»</text><!--MD5=[ca507a715aa68c8647035d218dce7268]
+link c15 to c9--><path d="M696.1126,370.3864 C767.8928,368.719 865.2703,366.4571 936.3361,364.8063 " fill="none" id="c15-to-c9" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="941.4066,364.6885,932.316,360.8989,936.408,364.8048,932.5021,368.8967,941.4066,364.6885" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="68" x="774" y="363.6975">«includes»</text><!--MD5=[d83dc277a199605961b800aa4ad5360c]
+link c11 to c10--><path d="M665.3523,462.9387 C736.4549,477.3079 850.4734,500.35 932.0851,516.8429 " fill="none" id="c11-to-c10" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="937.413,517.9196,929.3838,512.2159,932.5121,516.929,927.7989,520.0573,937.413,517.9196" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="68" x="774" y="481.6975">«includes»</text><!--MD5=[be053c3fbee62bfcf771e798f8d39a32]
+link c16 to c10--><path d="M656.1516,544.5851 C674.1993,550.7515 694.1173,558.0289 712,565.6306 C739.9875,577.5277 743.4253,589.5469 773,596.6306 C843.0685,613.4135 924.0288,586.9379 976.0608,564.0162 " fill="none" id="c16-to-c10" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="980.6918,561.9518,970.8429,561.963,976.125,563.9877,974.1003,569.2698,980.6918,561.9518" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="68" x="774" y="592.6975">«includes»</text><!--MD5=[16528dc8cbcd6f91da1b11058b08d3c9]
+link t to c14--><path d="M394.2714,418.8851 C404.7976,336.564 432.81,154.9058 479,115.6306 C607.9324,6 820.6148,25.5558 940.5377,48.3557 " fill="none" id="t-to-c14" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="945.4707,49.3054,937.3892,43.676,940.5609,48.3601,935.8768,51.5318,945.4707,49.3054" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[821a3015536bc9b2e2df041ddeded8a3]
+link p to c1--><path d="M84.6615,839.1312 C91.8862,847.5354 99.4462,856.7532 106,865.6306 C136.5414,906.9999 116.0782,963.6306 167.5,963.6306 C167.5,963.6306 167.5,963.6306 389.5,963.6306 C437.5539,963.6306 491.0514,972.1676 532.0237,980.5573 " fill="none" id="p-to-c1" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="536.957,981.5791,528.9554,975.8368,532.0609,980.565,527.3328,983.6705,536.957,981.5791" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[90a3246f3dc5db6c6abf574fb9d343fc]
+link e to c17--><path d="M75.5126,964.4262 C94.1546,996.7937 125.6079,1036.6306 167.5,1036.6306 C167.5,1036.6306 167.5,1036.6306 389.5,1036.6306 C439.9348,1036.6306 496.2672,1046.5745 537.8812,1055.8616 " fill="none" id="e-to-c17" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="542.8817,1056.9902,534.9834,1051.1066,538.0044,1055.8892,533.2218,1058.9102,542.8817,1056.9902" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[8fb9d167e6467be98700f4ef805558c8]
+link c to c2--><path d="M413.7629,598.5126 C430.9306,613.7538 455.0686,633.3478 479,646.6306 C493.6964,654.7876 510.2333,661.8795 526.2384,667.8231 " fill="none" id="c-to-c2" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="531.1858,669.6308,524.1053,662.7849,526.4895,667.9148,521.3596,670.299,531.1858,669.6308" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[b8232c4ef0f10087f7cb198b2e48d1af]
+link c to c3--><path d="M413.6112,598.7335 C423.3768,609.0334 434.1709,621.7395 442,634.6306 C465.9514,674.0681 445.6651,699.728 479,731.6306 C490.3029,742.4479 504.601,750.3417 519.3646,756.1016 " fill="none" id="c-to-c3" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="524.3856,757.9743,517.351,751.0812,519.7009,756.2269,514.5552,758.5768,524.3856,757.9743" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[e1fc513cc4a545acf349c09a0a7aad29]
+link c to c4--><path d="M413.5415,597.0696 C423.7794,607.4486 434.9603,620.6749 442,634.6306 C477.9997,705.997 425.1001,751.6057 479,810.6306 C489.9662,822.6396 504.7197,830.7943 520.1376,836.3205 " fill="none" id="c-to-c4" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="524.9403,837.9525,517.706,831.2693,520.2062,836.3437,515.1319,838.8439,524.9403,837.9525" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[5e91c0dad12ad861656ce3bb3c420615]
+link c to c5--><path d="M413.7285,596.1854 C424.2695,606.5697 435.6447,620.0506 442,634.6306 C464.4408,686.113 440.8715,843.3966 479,884.6306 C490.1083,896.6437 505.0063,904.7957 520.5328,910.3174 " fill="none" id="c-to-c5" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="525.3681,911.9479,518.1181,905.2817,520.6302,910.3502,515.5618,912.8623,525.3681,911.9479" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[99cae6fa1b396f8910e1697fd0ffeb79]
+link c to c7--><path d="M413.5463,555.8013 C424.1837,545.5841 435.6919,532.2158 442,517.6306 C465.5162,463.2581 437.8529,296.2486 479,253.6306 C490.9301,241.274 506.9415,233.2088 523.3887,227.9637 " fill="none" id="c-to-c7" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="528.503,226.4248,518.7321,225.188,523.7151,227.8656,521.0374,232.8486,528.503,226.4248" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[5bfb9ee08c9fe307d796d4fa1ac7f6a3]
+link c to c12--><path d="M413.6479,555.8448 C424.3084,545.6375 435.8068,532.2649 442,517.6306 C472.3095,446.0109 424.0447,224.6575 479,169.6306 C490.6953,157.9201 506.4381,151.3936 522.6799,147.9799 " fill="none" id="c-to-c12" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="527.7326,147.0182,518.1433,144.7721,522.8208,147.9534,519.6395,152.6309,527.7326,147.0182" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[98cd64c1c9a5b36a9b72d715f27e4ace]
+link c to c8--><path d="M413.752,554.7261 C424.0323,544.5575 435.1883,531.5351 442,517.6306 C478.8891,442.3305 422.7257,394.7926 479,332.6306 C488.5944,322.0324 501.0877,314.3019 514.3885,308.6661 " fill="none" id="c-to-c8" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="519.3215,306.683,509.479,306.3287,514.6823,308.548,512.463,313.7513,519.3215,306.683" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[f3dc88e6db9cab0a23864d6f97c9425f]
+link c to c15--><path d="M413.5417,553.364 C423.4116,543.2201 434.3039,530.5942 442,517.6306 C467.4726,474.7234 443.316,446.5094 479,411.6306 C489.737,401.1359 503.3189,393.465 517.4643,387.8583 " fill="none" id="c-to-c15" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="522.2797,386.0349,512.4464,385.4814,517.6037,387.8056,515.2795,392.9629,522.2797,386.0349" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[0ea6ef1e896b9283f9c14400bcd692f0]
+link c to c11--><path d="M413.5,549.0808 C434.6982,526.1499 464.4361,495.3657 479,486.6306 C494.5248,477.3191 512.5986,470.162 529.953,464.7392 " fill="none" id="c-to-c11" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="534.826,463.2553,525.0511,462.0506,530.0429,464.7119,527.3816,469.7036,534.826,463.2553" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[dbf43624efdda33c49b7992129252766]
+link c to c16--><path d="M413.5897,570.0097 C440.9126,563.6343 486.7824,552.9314 526.121,543.7524 " fill="none" id="c-to-c16" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="531.3779,542.5257,521.7044,540.6754,526.5087,543.6618,523.5222,548.4661,531.3779,542.5257" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[a90f2515ba02cd5f59583696e0db7500]
+link c to c19--><path d="M413.5897,579.1867 C437.0018,582.6428 474.0313,588.109 508.901,593.2565 " fill="none" id="c-to-c19" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="514.0282,594.0133,505.7089,588.7417,509.0818,593.283,504.5405,596.6559,514.0282,594.0133" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[34c348c36d1bf2b09754a9066e84d666]
+reverse link c17 to c18--><path d="M689.2576,1068.5032 C762.4589,1065.9526 865.4153,1062.3653 938.9611,1059.8027 " fill="none" id="c17-backto-c18" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="684.0393,1068.685,693.1732,1072.3691,689.0363,1068.5109,692.8945,1064.374,684.0393,1068.685" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="67" x="774.5" y="1059.6975">«extends»</text><!--MD5=[184db51fdd09a58f64141f2277c364a8]
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+together {
+
+    :Persona: as p
+    :Empleado: as e
+    :Timer: as t
+    :Cliente: as c
+
+    t -[hidden]l- c
+
+    together {
+        :Cliente VIP: as vc
+        :Cliente Normal: as cn
+        cn -[hidden]- vc
+        vc -|> c
+        cn -|> c
+    }
+    
+}
+
+rectangle Sistema_de_Librería {
+    (c1 - Registrar Cliente) as c1
+    (c2 - Configurar Preferencias) as c2
+
+    (c3 - Recomendar Libro) as c3
+    (c4 - Agregar Amigo) as c4
+    (c5 - Eliminar Amigo) as c5
+    (c6 - Seleccionar Amigo) as c6
+    c4 ..> c6 :<<includes>>
+    c5 ..> c6 :<<includes>>
+    c3 ..> c6 :<<includes>>
+
+    (c7 - Buscar Libro) as c7
+    (c8 - Consultar Compras) as c8
+
+    (c9 - Actualizar Stock) as c9
+    (c10 - Actualizar Stock Pre-Venta) as c10
+    (c11 - Reservar Libro) as c11
+    together {
+        (c12 - Comprar) as c12 
+        (c13 - Calcular Costo) as c13
+    }
+
+    (c14 - Cambiar Categoría Cliente) as c14
+
+    (c15 - Cancelar Compra) as c15
+    (c16 - Cancelar Reserva) as c16
+
+
+    (c17 - Ingresar Libro) as c17
+    (c18 - Notificar Cliente) as c18
+    (c19 - Visualizar Compras) as c19
+}
+
+c12 <.. c14 :<<extends>>
+c12 ..> c9 :<<includes>>
+c12 ..> c13 :<<includes>>
+
+c17 ..> c9 :<<includes>>
+
+c15 ..> c9 :<<includes>>
+c11 ..> c10 : <<includes>>
+c16 ..> c10: <<includes>>
+
+t - -> c14
+p - -> c1
+e - -> c17
+c - -> c2
+c - -> c3
+c - -> c4
+c - -> c5
+c - -> c7
+c - -> c12
+c - -> c8
+c - -> c15
+c - -> c11
+c - -> c16
+c - -> c19
+
+
+c17 <.. c18 :<<extends>>
+@enduml
+
+PlantUML version 1.2021.5(Sun Apr 25 11:20:28 UTC 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>

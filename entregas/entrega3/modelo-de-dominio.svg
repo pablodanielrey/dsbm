@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="915px" preserveAspectRatio="none" style="width:1158px;height:915px;" version="1.1" viewBox="0 0 1158 915" width="1158px" zoomAndPan="magnify"><defs><filter height="300%" id="f1hug96uzv3hgu" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FEFECE" filter="url(#f1hug96uzv3hgu)" height="49.25" style="stroke:#A80036;stroke-width:1.5;" width="69" x="292.4277" y="57.0793"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="52" x="300.9277" y="70.218">Persona</text><line style="stroke:#A80036;stroke-width:1.5;" x1="293.4277" x2="360.4277" y1="75.048" y2="75.048"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="57" x="298.4277" y="88.3303">nombre: str</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="55" x="298.4277" y="99.9709">apellido: str</text><rect fill="#FEFECE" filter="url(#f1hug96uzv3hgu)" height="107.4531" style="stroke:#A80036;stroke-width:1.5;" width="73" x="238.4277" y="321.0793"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="43" x="253.4277" y="334.218">Cliente</text><line style="stroke:#A80036;stroke-width:1.5;" x1="239.4277" x2="310.4277" y1="339.0481" y2="339.0481"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="61" x="244.4277" y="352.3303">dirección: str</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="38" x="244.4277" y="363.9709">país: str</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="50" x="244.4277" y="375.6115">ciudad: str</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="30" x="244.4277" y="387.2522">cp: str</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="45" x="244.4277" y="398.8928">email: str</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="59" x="244.4277" y="410.5334">teléfono: str</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="61" x="244.4277" y="422.174">crédito: float</text><rect fill="#FEFECE" filter="url(#f1hug96uzv3hgu)" height="33.9688" style="stroke:#A80036;stroke-width:1.5;" width="75" x="237.4277" y="663.5793"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="61" x="244.4277" y="676.718">Categoría</text><line style="stroke:#A80036;stroke-width:1.5;" x1="238.4277" x2="311.4277" y1="681.5481" y2="681.5481"/><rect fill="#FEFECE" filter="url(#f1hug96uzv3hgu)" height="33.9688" style="stroke:#A80036;stroke-width:1.5;" width="101" x="182.4277" y="867.0793"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="87" x="189.4277" y="880.218">ClienteNormal</text><line style="stroke:#A80036;stroke-width:1.5;" x1="183.4277" x2="282.4277" y1="885.0481" y2="885.0481"/><rect fill="#FEFECE" filter="url(#f1hug96uzv3hgu)" height="33.9688" style="stroke:#A80036;stroke-width:1.5;" width="76" x="318.9277" y="867.0793"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="62" x="325.9277" y="880.218">ClienteVIP</text><line style="stroke:#A80036;stroke-width:1.5;" x1="319.9277" x2="393.9277" y1="885.0481" y2="885.0481"/><rect fill="#FEFECE" filter="url(#f1hug96uzv3hgu)" height="49.25" style="stroke:#A80036;stroke-width:1.5;" width="55" x="774.4277" y="195.0793"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="30" x="786.9277" y="208.218">Libro</text><line style="stroke:#A80036;stroke-width:1.5;" x1="775.4277" x2="828.4277" y1="213.0481" y2="213.0481"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="43" x="780.4277" y="226.3303">título: str</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="39" x="780.4277" y="237.9709">idbn: str</text><rect fill="#FEFECE" filter="url(#f1hug96uzv3hgu)" height="37.6094" style="stroke:#A80036;stroke-width:1.5;" width="69" x="767.4277" y="528.0793"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="39" x="782.4277" y="541.218">Digital</text><line style="stroke:#A80036;stroke-width:1.5;" x1="768.4277" x2="835.4277" y1="546.0481" y2="546.0481"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="57" x="773.4277" y="559.3303">licencias: int</text><rect fill="#FEFECE" filter="url(#f1hug96uzv3hgu)" height="37.6094" style="stroke:#A80036;stroke-width:1.5;" width="64" x="871.9277" y="528.0793"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="50" x="878.9277" y="541.218">Impreso</text><line style="stroke:#A80036;stroke-width:1.5;" x1="872.9277" x2="934.9277" y1="546.0481" y2="546.0481"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="48" x="877.9277" y="559.3303">copias: int</text><rect fill="#FEFECE" filter="url(#f1hug96uzv3hgu)" height="37.6094" style="stroke:#A80036;stroke-width:1.5;" width="69" x="971.4277" y="528.0793"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="46" x="982.9277" y="541.218">Genero</text><line style="stroke:#A80036;stroke-width:1.5;" x1="972.4277" x2="1039.4277" y1="546.0481" y2="546.0481"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="57" x="977.4277" y="559.3303">nombre: str</text><rect fill="#FEFECE" filter="url(#f1hug96uzv3hgu)" height="37.6094" style="stroke:#A80036;stroke-width:1.5;" width="69" x="1075.4277" y="528.0793"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="51" x="1084.4277" y="541.218">Editorial</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1076.4277" x2="1143.4277" y1="546.0481" y2="546.0481"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="57" x="1081.4277" y="559.3303">nombre: str</text><rect fill="#FEFECE" filter="url(#f1hug96uzv3hgu)" height="72.5313" style="stroke:#A80036;stroke-width:1.5;" width="123" x="872.4277" y="45.0793"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="39" x="914.4277" y="58.218">Oferta</text><line style="stroke:#A80036;stroke-width:1.5;" x1="873.4277" x2="994.4277" y1="63.048" y2="63.048"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="71" x="878.4277" y="76.3303">lazamiento: int</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="72" x="878.4277" y="87.9709">temporada: int</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="61" x="878.4277" y="99.6115">reedicion: int</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="111" x="878.4277" y="111.2522">últimos_volúmenes: int</text><rect fill="#FEFECE" filter="url(#f1hug96uzv3hgu)" height="84.1719" style="stroke:#A80036;stroke-width:1.5;" width="136" x="410.9277" y="505.0793"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="79" x="439.4277" y="518.218">Preferencias</text><line style="stroke:#A80036;stroke-width:1.5;" x1="411.9277" x2="545.9277" y1="523.0481" y2="523.0481"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="65" x="416.9277" y="536.3303">notificar: bool</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="53" x="416.9277" y="547.9709">género: str</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="45" x="416.9277" y="559.6115">autor: str</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="122" x="416.9277" y="571.2522">autores_comprados: bool</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="124" x="416.9277" y="582.8928">generos_comprados: bool</text><rect fill="#FEFECE" filter="url(#f1hug96uzv3hgu)" height="72.5313" style="stroke:#A80036;stroke-width:1.5;" width="131" x="534.4277" y="45.0793"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="78" x="560.9277" y="58.218">Lanzamiento</text><line style="stroke:#A80036;stroke-width:1.5;" x1="535.4277" x2="664.4277" y1="63.048" y2="63.048"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="83" x="540.4277" y="76.3303">fecha_inicio: date</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="119" x="540.4277" y="87.9709">fecha_lanzamiento: date</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="71" x="540.4277" y="99.6115">ejemplares: int</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="91" x="540.4277" y="111.2522">limite_reservas: int</text><rect fill="#FEFECE" filter="url(#f1hug96uzv3hgu)" height="60.8906" style="stroke:#A80036;stroke-width:1.5;" width="86" x="621.9277" y="650.0793"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="48" x="640.9277" y="663.218">Compra</text><line style="stroke:#A80036;stroke-width:1.5;" x1="622.9277" x2="706.9277" y1="668.0481" y2="668.0481"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="55" x="627.9277" y="681.3303">fecha: date</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="54" x="627.9277" y="692.9709">costo: float</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="74" x="627.9277" y="704.6115">cancelada: bool</text><rect fill="#FEFECE" filter="url(#f1hug96uzv3hgu)" height="33.9688" style="stroke:#A80036;stroke-width:1.5;" width="97" x="678.4277" y="772.0793"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="83" x="685.4277" y="785.218">CompraStock</text><line style="stroke:#A80036;stroke-width:1.5;" x1="679.4277" x2="774.4277" y1="790.0481" y2="790.0481"/><rect fill="#FEFECE" filter="url(#f1hug96uzv3hgu)" height="33.9688" style="stroke:#A80036;stroke-width:1.5;" width="64" x="578.9277" y="772.0793"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="50" x="585.9277" y="785.218">Reserva</text><line style="stroke:#A80036;stroke-width:1.5;" x1="579.9277" x2="641.9277" y1="790.0481" y2="790.0481"/><path d="M436.4277,871.5793 L436.4277,896.7121 A0,0 0 0 0 436.4277,896.7121 L785.4277,896.7121 A0,0 0 0 0 785.4277,896.7121 L785.4277,881.5793 L775.4277,871.5793 L614.9277,871.5793 L610.9277,806.5038 L606.9277,871.5793 L436.4277,871.5793 A0,0 0 0 0 436.4277,871.5793 " fill="#FBFB77" filter="url(#f1hug96uzv3hgu)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M775.4277,871.5793 L775.4277,881.5793 L785.4277,881.5793 L775.4277,871.5793 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="328" x="442.4277" y="888.6462">La reserva esta modelada como un tipo de compra</text><rect fill="#FEFECE" filter="url(#f1hug96uzv3hgu)" height="60.8906" style="stroke:#A80036;stroke-width:1.5;" width="71" x="766.4277" y="51.0793"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="47" x="778.4277" y="64.218">Ingreso</text><line style="stroke:#A80036;stroke-width:1.5;" x1="767.4277" x2="836.4277" y1="69.048" y2="69.048"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="55" x="772.4277" y="82.3303">fecha: date</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="59" x="772.4277" y="93.9709">cantidad: int</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="57" x="772.4277" y="105.6115">precio: float</text><rect fill="#FEFECE" filter="url(#f1hug96uzv3hgu)" height="33.9688" style="stroke:#A80036;stroke-width:1.5;" width="114" x="51.9277" y="202.5793"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="100" x="58.9277" y="215.718">Recomendacion</text><line style="stroke:#A80036;stroke-width:1.5;" x1="52.9277" x2="164.9277" y1="220.5481" y2="220.5481"/><rect fill="#FEFECE" filter="url(#f1hug96uzv3hgu)" height="33.9688" style="stroke:#A80036;stroke-width:1.5;" width="87" x="16.4277" y="64.5793"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="73" x="23.4277" y="77.718">Notificación</text><line style="stroke:#A80036;stroke-width:1.5;" x1="17.4277" x2="102.4277" y1="82.548" y2="82.548"/><!--MD5=[7054803d1b0375f8ec12ccf194103be2]
+link Cliente to Preferencias--><path codeLine="102" d="M311.8706,405.8177 C343.5543,432.6091 389.6114,471.5545 425.3454,501.7707 " fill="none" id="Cliente-to-Preferencias" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="429.2092,505.0379,424.9195,496.1723,425.3912,501.8095,419.754,502.2811,429.2092,505.0379" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="25" x="389.9277" y="471.1462">pref</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="412.3121" y="493.8963">1</text><!--MD5=[74ff2505e96c9d2ea3a014d6c11199a7]
+link Compra to Libro--><path codeLine="105" d="M674.0827,649.7732 C699.079,565.6615 768.2704,332.8348 792.9984,249.6259 " fill="none" id="Compra-to-Libro" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="794.562,244.3647,788.164,251.8524,793.1377,249.1576,795.8326,254.1313,794.562,244.3647" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="27" x="730.9277" y="471.1462">libro</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="784.9135" y="264.2869">*</text><!--MD5=[f8c6c4c9ef01641b8250815349f8af04]
+link Compra to CompraStock--><path codeLine="106" d="M682.3631,711.0913 C693.6095,730.7725 707.8229,755.6459 717.1341,771.9405 " fill="none" id="Compra-CompraStock" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[6d6d6d6add3150272765c1eb1a93b519]
+link Compra to Reserva--><path codeLine="107" d="M649.742,711.0913 C639.9467,730.7725 627.5674,755.6459 619.4576,771.9405 " fill="none" id="Compra-Reserva" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[dc18635ec4b42d30a7f735f094f0b6c5]
+link Libro to Persona--><path codeLine="110" d="M774.2345,211.5337 C693.8014,188.1658 459.9794,120.2343 366.3601,93.0354 " fill="none" id="Libro-to-Persona" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="361.4711,91.6151,368.9977,97.9673,366.2726,93.0101,371.2297,90.285,361.4711,91.6151" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="49" x="607.9277" y="161.1462">autores</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="369.3176" y="89.1929">*</text><!--MD5=[f7a6d2b9136d5792269bbe65e24ca4cc]
+link Libro to Genero--><path codeLine="111" d="M817.2609,244.195 C855.2807,305.2318 953.5293,462.9594 991.0563,523.2049 " fill="none" id="Libro-to-Genero" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="993.8635,527.7116,992.5003,517.9575,991.2199,523.4676,985.7099,522.1873,993.8635,527.7116" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="45" x="930.9277" y="379.1462">genero</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="982.2915" y="516.963">*</text><!--MD5=[58d7962a749f8ce6e750f8a5ba9226c8]
+link Libro to Editorial--><path codeLine="112" d="M829.4875,229.2386 C868.2091,243.9514 939.099,275.1963 984.9277,321.0793 C1045.6435,381.867 1085.4991,478.2719 1101.7062,522.9191 " fill="none" id="Libro-to-Editorial" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1103.4745,527.8455,1104.1986,518.0233,1101.7852,523.1395,1096.669,520.7261,1103.4745,527.8455" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="51" x="1058.9277" y="379.1462">editorial</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="1092.4039" y="517.1362">1</text><!--MD5=[c3bec81ddcd27eb45c62536239176700]
+link Persona to Cliente--><path codeLine="114" d="M322.4942,106.5603 C314.3197,152.6205 296.6726,252.055 285.3227,316.0074 " fill="none" id="Persona-to-Cliente" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="284.4488,320.9318,289.9602,312.7694,285.3227,316.0088,282.0833,311.3712,284.4488,320.9318" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[ccda41c181ed85a00752db9f2ce3634d]
+link Cliente to Categoría--><path codeLine="115" d="M274.9277,428.2306 C274.9277,496.2289 274.9277,610.3524 274.9277,658.2999 " fill="none" id="Cliente-to-Categoría" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="274.9277,663.5423,278.9277,654.5423,274.9277,658.5423,270.9277,654.5423,274.9277,663.5423" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="15" x="275.9277" y="551.6462">es</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="265.6027" y="652.5085">1</text><!--MD5=[71085e0a1d0e48e399afe1ed42015768]
+link Categoría to ClienteNormal--><path codeLine="116" d="M271.419,697.5796 C263.8374,734.3142 245.9309,821.0759 237.486,861.9933 " fill="none" id="Categoría-to-ClienteNormal" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="236.4559,866.9843,242.1926,858.9786,237.4666,862.0875,234.3577,857.3615,236.4559,866.9843" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[27208bb0b338c0c920aabe26057adfe4]
+link Categoría to ClienteVIP--><path codeLine="117" d="M281.7779,697.5796 C296.6103,734.3891 331.6831,821.4295 348.1287,862.2427 " fill="none" id="Categoría-to-ClienteVIP" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="350.0393,866.9843,350.3858,857.1415,348.1706,862.3466,342.9655,860.1315,350.0393,866.9843" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[f17c657b0377b74023f4b0078f8804f6]
+link Cliente to Compra--><path codeLine="119" d="M311.554,383.1444 C370.924,398.6128 489.1505,436.1839 564.9277,505.0793 C607.887,544.1372 637.1068,606.0819 652.39,644.9726 " fill="none" id="Cliente-to-Compra" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="654.3642,650.0673,654.8419,640.23,652.5575,645.4051,647.3824,643.1207,654.3642,650.0673" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="42" x="626.9277" y="551.6462">realiza</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="644.2878" y="638.8456">*</text><!--MD5=[5b5fb0d64f4eb8d3547eb53e9c620dc8]
+link Cliente to Cliente--><path codeLine="120" d="M311.7159,357.8389 C330.0626,355.5226 346.4277,361.1027 346.4277,374.5793 C346.4277,386.7924 332.9873,392.5203 316.8118,391.763 " fill="none" id="Cliente-to-Cliente" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="311.7159,391.3197,320.3353,396.0848,316.6971,391.7531,321.0288,388.1149,311.7159,391.3197" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="40" x="352.4277" y="379.1462">amigo</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="319.3958" y="390.1175">*</text><!--MD5=[79024e76049b6a707d84efb97ce6e97a]
+reverse link Recomendacion to Cliente--><path codeLine="121" d="M131.2276,240.4015 C158.6524,266.009 205.5842,309.8309 238.3249,340.402 " fill="none" id="Recomendacion-backto-Cliente" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="127.3269,236.7592,131.1751,245.8251,130.9814,240.1716,136.635,239.9779,127.3269,236.7592" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="76" x="182.9277" y="287.1462">recomienda</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="123.9166" y="256.719">1</text><!--MD5=[f06457f2f7dbda446e0ac214a01a8c57]
+link Recomendacion to Cliente--><path codeLine="122" d="M115.6925,236.6374 C122.4341,252.1133 133.9353,274.915 148.9277,291.0793 C173.1357,317.1795 207.0675,339.0647 233.6206,353.8734 " fill="none" id="Recomendacion-to-Cliente" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="238.1516,356.3719,232.202,348.5232,233.7732,353.9575,228.3389,355.5287,238.1516,356.3719" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="149.9277" y="287.1462">a</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="222.3787" y="348.5078">1</text><!--MD5=[589c84a0a1bdcce4b92ec226bf535222]
+reverse link Libro to Recomendacion--><path codeLine="123" d="M769.058,219.5793 C659.4017,219.5793 305.2114,219.5793 165.9333,219.5793 " fill="none" id="Libro-backto-Recomendacion" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="774.093,219.5793,765.093,215.5793,769.093,219.5793,765.093,223.5793,774.093,219.5793" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="27" x="456.6777" y="212.6462">libro</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="758.3333" y="214.8038">1</text><!--MD5=[37853e01979a1ef86c93de08f205de1e]
+link Libro to Digital--><path codeLine="126" d="M801.9277,244.195 C801.9277,306.822 801.9277,471.2433 801.9277,527.7116 " fill="none" id="Libro-Digital" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[ed400e96f1326e878cda68ba471a3ef4]
+link Libro to Impreso--><path codeLine="127" d="M809.5943,244.195 C829.0995,306.822 880.3085,471.2433 897.8956,527.7116 " fill="none" id="Libro-Impreso" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[6b02a088b3c46103ea3639c7e372cbf2]
+link Ingreso to Libro--><path codeLine="129" d="M801.9277,112.206 C801.9277,135.3863 801.9277,167.0389 801.9277,189.967 " fill="none" id="Ingreso-to-Libro" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="801.9277,195.0121,805.9277,186.0121,801.9277,190.0121,797.9277,186.0121,801.9277,195.0121" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="792.9027" y="183.8468">1</text><!--MD5=[e9cc27ca13ccbc29e2e0b635e34924f7]
+link Lanzamiento to Libro--><path codeLine="130" d="M653.5297,118.1985 C690.5155,143.466 738.4682,176.2258 769.7041,197.5652 " fill="none" id="Lanzamiento-to-Libro" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="774.1881,200.6285,769.0133,192.2487,770.0596,197.8079,764.5004,198.8542,774.1881,200.6285" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="758.4516" y="191.2337">1</text><!--MD5=[37cafd4bf45b316316160597ac1e546f]
+link Notificación to Cliente--><path codeLine="132" d="M50.349,98.6205 C34.2187,129.8155 6,197.1973 33.9277,244.0793 C77.184,316.6933 176.4503,351.369 233.168,365.7937 " fill="none" id="Notificación-to-Cliente" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="238.1844,367.0449,230.4199,360.9858,233.333,365.8349,228.4839,368.748,238.1844,367.0449" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="222.4177" y="379.0747">1</text><!--MD5=[7382a85e780bd3562511e72078fe000d]
+link Notificación to Lanzamiento--><path codeLine="133" d="M91.0717,64.53 C115.4074,52.2263 150.5124,36.6673 183.4277,30.0793 C303.7341,6 445.9838,35.883 529.2524,59.1549 " fill="none" id="Notificación-to-Lanzamiento" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="534.1578,60.5373,526.5803,54.246,529.3453,59.181,524.4102,61.946,534.1578,60.5373" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="518.5267" y="54.5153">1</text><!--MD5=[2d4558d413fc0592571a97db0a803c2b]
+@startuml
+object Oferta {
+    lazamiento: int
+    temporada: int
+    reedicion: int
+    últimos_volúmenes: int
+}
+
+
+together {
+    object Persona {
+        nombre: str
+        apellido: str
+    }
+    object Cliente {
+        dirección: str
+        país: str
+        ciudad: str
+        cp: str
+        email: str
+        teléfono: str
+        crédito: float
+    }
+
+    object Categoría
+    object ClienteNormal
+    object ClienteVIP
+}
+
+object Preferencias {
+    notificar: bool
+    género: str
+    autor: str
+    autores_comprados: bool
+    generos_comprados: bool
+}
+
+together {
+    object Libro {
+        título: str
+        idbn: str
+    }
+    object Digital {
+        licencias: int
+    }
+    object Impreso {
+        copias: int
+    }
+    object Genero {
+        nombre: str
+    }
+    object Editorial {
+        nombre: str
+    }
+}
+
+
+object Lanzamiento {
+    fecha_inicio: date
+    fecha_lanzamiento: date
+    ejemplares: int
+    limite_reservas: int
+}
+
+object Compra {
+    fecha: date
+    costo: float
+    cancelada: bool
+}
+object CompraStock {
+}
+object Reserva {
+}
+note bottom of Reserva: La reserva esta modelada como un tipo de compra
+
+
+object Ingreso {
+    fecha: date
+    cantidad: int
+    precio: float
+}
+
+object Recomendacion
+
+object Notificación
+
+
+/'
+object Inventario
+object StockDigital {
+    licencias: int
+}
+object StockFisico {
+    copias: int
+}
+
+Inventario -u- StockDigital
+StockDigital -u- "1" Digital : en_stock
+Inventario -u- StockFisico
+StockFisico -u- "1" Impreso : en_stock
+'/
+
+Cliente -d-> "1" Preferencias : pref
+
+
+Compra -> "*" Libro : libro
+Compra -d- CompraStock
+Compra -d- Reserva
+
+
+Libro - -> "*" Persona : autores
+Libro - -> "*" Genero: genero
+Libro - -> "1" Editorial: editorial
+
+Persona -d-> Cliente
+Cliente -d-> "1" Categoría : es
+Categoría -d-> ClienteNormal
+Categoría -d-> ClienteVIP
+
+Cliente - - -> "*" Compra : realiza
+Cliente -> "*" Cliente : amigo
+Cliente -u-> "1" Recomendacion : recomienda
+Recomendacion - -> "1" Cliente : a
+Recomendacion -l-> "1" Libro : libro
+
+
+Libro -d- Digital
+Libro -d- Impreso
+
+Ingreso -d-> "1" Libro
+Lanzamiento -d-> "1" Libro
+
+Notificación -> "1" Cliente
+Notificación -> "1" Lanzamiento
+@enduml
+
+@startuml
+object Oferta {
+    lazamiento: int
+    temporada: int
+    reedicion: int
+    últimos_volúmenes: int
+}
+
+
+together {
+    object Persona {
+        nombre: str
+        apellido: str
+    }
+    object Cliente {
+        dirección: str
+        país: str
+        ciudad: str
+        cp: str
+        email: str
+        teléfono: str
+        crédito: float
+    }
+
+    object Categoría
+    object ClienteNormal
+    object ClienteVIP
+}
+
+object Preferencias {
+    notificar: bool
+    género: str
+    autor: str
+    autores_comprados: bool
+    generos_comprados: bool
+}
+
+together {
+    object Libro {
+        título: str
+        idbn: str
+    }
+    object Digital {
+        licencias: int
+    }
+    object Impreso {
+        copias: int
+    }
+    object Genero {
+        nombre: str
+    }
+    object Editorial {
+        nombre: str
+    }
+}
+
+
+object Lanzamiento {
+    fecha_inicio: date
+    fecha_lanzamiento: date
+    ejemplares: int
+    limite_reservas: int
+}
+
+object Compra {
+    fecha: date
+    costo: float
+    cancelada: bool
+}
+object CompraStock {
+}
+object Reserva {
+}
+note bottom of Reserva: La reserva esta modelada como un tipo de compra
+
+
+object Ingreso {
+    fecha: date
+    cantidad: int
+    precio: float
+}
+
+object Recomendacion
+
+object Notificación
+
+
+
+Cliente -d-> "1" Preferencias : pref
+
+
+Compra -> "*" Libro : libro
+Compra -d- CompraStock
+Compra -d- Reserva
+
+
+Libro - -> "*" Persona : autores
+Libro - -> "*" Genero: genero
+Libro - -> "1" Editorial: editorial
+
+Persona -d-> Cliente
+Cliente -d-> "1" Categoría : es
+Categoría -d-> ClienteNormal
+Categoría -d-> ClienteVIP
+
+Cliente - - -> "*" Compra : realiza
+Cliente -> "*" Cliente : amigo
+Cliente -u-> "1" Recomendacion : recomienda
+Recomendacion - -> "1" Cliente : a
+Recomendacion -l-> "1" Libro : libro
+
+
+Libro -d- Digital
+Libro -d- Impreso
+
+Ingreso -d-> "1" Libro
+Lanzamiento -d-> "1" Libro
+
+Notificación -> "1" Cliente
+Notificación -> "1" Lanzamiento
+@enduml
+
+PlantUML version 1.2021.5(Sun Apr 25 11:20:28 UTC 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>

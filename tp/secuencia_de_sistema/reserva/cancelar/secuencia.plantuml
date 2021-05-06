@@ -1,0 +1,30 @@
+@startuml
+
+
+title c16 Cancelar Reserva
+
+actor Cliente as c
+participant Sistema as s
+
+c -> s : libros = cancelar_reserva(cliente)
+activate c
+    activate s
+    s -> s : reservas = buscar_reservas_a_cancelar()
+    return reservas
+    deactivate s
+
+    c -> s : seleccionar_reserva(reserva)
+    activate s
+        return confirmar
+    deactivate s
+
+    c -> s : confirmar_cancelación()
+    activate s
+        s -> s : cancelar_reserva(reserva)
+        s -> s : actualizar_stock_preventa(reserva)
+        return ok
+    deactivate s
+
+deactivate c
+
+@enduml
