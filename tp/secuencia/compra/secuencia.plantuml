@@ -1,0 +1,62 @@
+
+@startuml c12 Comprar Libro - Flujo normal
+
+title c12 Comprar Libro - Flujo normal
+
+actor Cliente as c
+participant Sistema as s
+participant Libreria as l
+participant Compra as compra
+
+activate c
+c -> s : libros = iniciar_compra(cliente)
+activate s
+    s -> s : almacenar_en_sesion(cliente)
+    s -> l : libros = buscar_libros_disponibles(cliente)
+    activate l
+        return libros
+    deactivate l
+    c <-- s : libros
+deactivate s
+
+c -> s : seleccionar_libro(libro)
+activate s
+    s -> s : cliente = obtener_cliente_de_sesion()
+    s -> l : comprar(cliente, libro)
+    activate l 
+        l -> compra ** : crear
+        l -> compra : calcular_costo(cliente, libro)
+        activate compra
+            l <-- compra : costo
+        deactivate compra
+        s <-- l : costo
+    deactivate l
+    return obtener_informacion_pago_para_costo
+deactivate s
+
+/'
+c -> s : enviar_info_pago(info)
+activate s
+    s -> s : ok = actualizar_stock(libro)
+    activate s
+    deactivate s            
+
+    s -> s : ok = cobrar_libro(cliente, costo, info)
+    activate s
+    deactivate s
+
+    s -> s : ok = cambiar_categoria_cliente(cliente)
+    activate s
+    deactivate s
+
+    s -> s : compra = crear_compra(cliente, libro)
+    activate s
+    deactivate s
+
+    c <-- s : datos_compra
+deactivate s
+'/
+
+deactivate c
+
+@enduml
