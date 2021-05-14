@@ -1,5 +1,6 @@
 @startuml
 
+
 object Oferta {
     lazamiento: int
     temporada: int
@@ -56,12 +57,7 @@ together {
 }
 
 
-object Lanzamiento {
-    fecha_inicio: date
-    fecha_lanzamiento: date
-    ejemplares: int
-    limite_reservas: int
-}
+
 
 object Compra {
     fecha: date
@@ -85,6 +81,22 @@ object Recomendacion
 
 object Notificación
 
+object Libreria {
+}
+
+object Lanzamiento {
+    fecha_inicio: date
+    fecha_lanzamiento: date
+    ejemplares: int
+    limite_reservas: int
+}
+
+
+Libreria -> Libro : libros
+Libreria -> Compra : compras
+Libreria -> Ingreso : ingresos
+Libreria -> Oferta : ofertas
+Libreria -l-> Lanzamiento : lanzamientos
 
 /'
 object Inventario
@@ -107,7 +119,7 @@ Cliente -d-> "1" Preferencias : pref
 Compra -> "*" Libro : libro
 Compra -d- CompraStock
 Compra -d- Reserva
-
+Compra -> Cliente : cliente
 
 Libro --> "*" Persona : autores
 Libro --> "*" Genero: genero
@@ -118,7 +130,7 @@ Cliente -d-> "1" Categoría : es
 Categoría -d-> ClienteNormal
 Categoría -d-> ClienteVIP
 
-Cliente ---> "*" Compra : realiza
+'Cliente ---> "*" Compra : realiza
 Cliente -> "*" Cliente : amigo
 Cliente -u-> "1" Recomendacion : recomienda
 Recomendacion --> "1" Cliente : a

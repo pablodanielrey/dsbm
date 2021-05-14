@@ -7,6 +7,7 @@ actor Cliente as c
 participant Sistema as s
 participant Libreria as l
 participant Compra as compra
+participant "libro:Libro" as libro
 
 activate c
 c -> s : libros = iniciar_compra(cliente)
@@ -14,6 +15,11 @@ activate s
     s -> s : almacenar_en_sesion(cliente)
     s -> l : libros = buscar_libros_disponibles(cliente)
     activate l
+        l -> l : buscar_libros_en_stock()
+        activate l
+            l -> libro : stock()
+            l <-- l : libros
+        deactivate l
         return libros
     deactivate l
     c <-- s : libros
@@ -27,35 +33,33 @@ activate s
         l -> compra ** : crear
         l -> compra : calcular_costo(cliente, libro)
         activate compra
+            compra -> compra : calcular_costo()
             l <-- compra : costo
         deactivate compra
+        l -> l : almacenar_compra_a_confirmar(cliente, compra)
         s <-- l : costo
     deactivate l
     return obtener_informacion_pago_para_costo
 deactivate s
 
-/'
 c -> s : enviar_info_pago(info)
 activate s
-    s -> s : ok = actualizar_stock(libro)
-    activate s
-    deactivate s            
+    s -> s : cliente = obtener_cliente_de_sesion()
+    s -> l : finalizar_compra(cliente, info)
+    activate l
+        l -> l : compra = buscar_compra(cliente)
+        l -> compra : finalizar_compra(info)
+        activate compra
+            compra -> libro : actualizar_stock()
+            compra -> compra : cobrar_libro(cliente, costo, libro)
+            compra -> compra : cambiar_categoría_cliente()
 
-    s -> s : ok = cobrar_libro(cliente, costo, info)
-    activate s
-    deactivate s
-
-    s -> s : ok = cambiar_categoria_cliente(cliente)
-    activate s
-    deactivate s
-
-    s -> s : compra = crear_compra(cliente, libro)
-    activate s
-    deactivate s
-
+            l <-- compra : datos_compra
+        deactivate compra
+        s <-- l : datos_compra
+    deactivate l
     c <-- s : datos_compra
 deactivate s
-'/
 
 deactivate c
 
