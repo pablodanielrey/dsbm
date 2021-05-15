@@ -11,6 +11,7 @@ participant "libro:Libro" as libro
 participant "cliente:Cliente" as cliente
 participant "ingreso:Ingreso" as ingreso
 participant "cuenta:Cuenta" as cuenta
+participant "vip:ClienteVIP" as vip
 
 activate c
 c -> s : libros = iniciar_compra(cliente)
@@ -82,7 +83,12 @@ activate s
                 l -> compra : agregar_costo(costo)
             end
             alt ultimos_costos > 5000
-                l -> cliente : cambiar_categoria_vip() 
+                l -> cliente : cambiar_categoria_vip()
+                activate cliente
+                    cliente -> vip **: crear
+                    cliente -> cliente : asignar_categoria(vip)
+                    l <-- cliente
+                deactivate cliente
             end
         deactivate l
         s <-- l : datos_compra
