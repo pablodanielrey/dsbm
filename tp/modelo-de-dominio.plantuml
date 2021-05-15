@@ -56,17 +56,19 @@ together {
     }
 }
 
-object Compra {
-    fecha: date
-    costo: float
-    cancelada: bool
-}
-object CompraStock {
-}
-object Reserva {
-}
-note bottom of Reserva: La reserva esta modelada como un tipo de compra
+together {
 
+    object Compra {
+        fecha: date
+        costo: float
+        cancelada: bool
+    }
+    object CompraStock {
+    }
+    object Reserva {
+    }
+    note bottom of Reserva: La reserva esta modelada como un tipo de compra
+}
 
 object Ingreso {
     fecha: date
@@ -97,7 +99,7 @@ Libreria -> Cliente : clientes
 Libreria -> Libro : libros
 Libreria -> Compra : compras
 Libreria -> Oferta : ofertas
-Libreria -l-> Lanzamiento : lanzamientos
+Libreria -> Lanzamiento : lanzamientos
 
 /'
 object Inventario
@@ -146,6 +148,6 @@ Libro -d- Impreso
 Lanzamiento -d-> "1" Libro
 
 Notificación -> "1" Cliente
-Notificación -> "1" Lanzamiento
+Notificación -u-> "1" Lanzamiento
 
 @enduml

@@ -80,7 +80,9 @@ activate s
         l -> l : cambiar_categoría_cliente()
         activate l
             loop compra in compras
-                l -> compra : agregar_costo(costo)
+                alt compra.fecha > principio_mes
+                    l -> compra : agregar_costo(ultimos_costos)
+                end
             end
             alt ultimos_costos > 5000
                 l -> cliente : cambiar_categoria_vip()
