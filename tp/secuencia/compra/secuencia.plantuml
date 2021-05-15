@@ -8,21 +8,22 @@ participant Sistema as s
 participant Libreria as l
 participant Compra as compra
 participant "libro:Libro" as libro
+participant "cliente:Cliente" as cliente
+participant "ingreso:Ingreso" as ingreso
+participant "cuenta:Cuenta" as cuenta
 
 activate c
 c -> s : libros = iniciar_compra(cliente)
 activate s
     s -> s : almacenar_en_sesion(cliente)
-    s -> l : libros = buscar_libros_disponibles(cliente)
+    s -> l : libros = buscar_libros_disponibles()
     activate l
-        l -> l : buscar_libros_en_stock()
-        activate l
-            l -> libro : stock()
-            l <-- l : libros
-        deactivate l
-        return libros
+        loop libro in libros
+            l -> libro : agregate_si_stock(libros_disponibles)
+        end
+        return libros_disponibles
     deactivate l
-    c <-- s : libros
+    c <-- s : libros_disponibles
 deactivate s
 
 c -> s : seleccionar_libro(libro)
@@ -33,7 +34,21 @@ activate s
         l -> compra ** : crear
         l -> compra : calcular_costo(cliente, libro)
         activate compra
-            compra -> compra : calcular_costo()
+            'el costo depende del tipo de libro y del tipo de cliente
+            compra -> libro : comision = calcular_comision()
+            activate libro
+                libro -> ingreso : costo = costo()
+                activate ingreso
+                    libro <-- ingreso : costo
+                deactivate ingreso
+                libro -> libro : comision = calcular_comision(costo)
+                compra <-- libro : comision
+            deactivate libro
+            compra -> cliente : costo_envio = calcular_envio(libro)
+            activate cliente
+                compra <-- cliente : costo_envio
+            deactivate cliente
+            compra -> compra : calcular_costo(comision, costo_envio)
             l <-- compra : costo
         deactivate compra
         l -> l : almacenar_compra_a_confirmar(cliente, compra)
@@ -51,11 +66,25 @@ activate s
         l -> compra : finalizar_compra(info)
         activate compra
             compra -> libro : actualizar_stock()
-            compra -> compra : cobrar_libro(cliente, costo, libro)
-            compra -> compra : cambiar_categoría_cliente()
-
+            compra -> cliente : cobrar(costo)
+            activate cliente
+                cliente -> cuenta : cobrar(costo)
+                activate cuenta
+                    cliente <-- cuenta: ok
+                deactivate cuenta
+                compra <-- cliente : ok
+            deactivate cliente
             l <-- compra : datos_compra
         deactivate compra
+        l -> l : cambiar_categoría_cliente()
+        activate l
+            loop compra in compras
+                l -> compra : agregar_costo(costo)
+            end
+            alt ultimos_costos > 5000
+                l -> cliente : cambiar_categoria_vip() 
+            end
+        deactivate l
         s <-- l : datos_compra
     deactivate l
     c <-- s : datos_compra

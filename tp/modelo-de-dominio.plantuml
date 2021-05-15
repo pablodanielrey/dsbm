@@ -56,9 +56,6 @@ together {
     }
 }
 
-
-
-
 object Compra {
     fecha: date
     costo: float
@@ -91,10 +88,14 @@ object Lanzamiento {
     limite_reservas: int
 }
 
+object Cuenta {
+    credito: int
+}
 
+
+Libreria -> Cliente : clientes
 Libreria -> Libro : libros
 Libreria -> Compra : compras
-Libreria -> Ingreso : ingresos
 Libreria -> Oferta : ofertas
 Libreria -l-> Lanzamiento : lanzamientos
 
@@ -114,6 +115,7 @@ StockFisico -u- "1" Impreso : en_stock
 '/
 
 Cliente -d-> "1" Preferencias : pref
+Cliente -d-> "1" Cuenta : cuenta
 
 
 Compra -> "*" Libro : libro
@@ -124,6 +126,7 @@ Compra -> Cliente : cliente
 Libro --> "*" Persona : autores
 Libro --> "*" Genero: genero
 Libro --> "1" Editorial: editorial
+Libro --> "*" Ingreso : ingresos
 
 Persona -d-> Cliente
 Cliente -d-> "1" Categoría : es
@@ -140,7 +143,6 @@ Recomendacion -l-> "1" Libro : libro
 Libro -d- Digital
 Libro -d- Impreso
 
-Ingreso -d-> "1" Libro
 Lanzamiento -d-> "1" Libro
 
 Notificación -> "1" Cliente
