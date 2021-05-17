@@ -7,7 +7,7 @@ object Oferta {
     reedicion: int
     últimos_volúmenes: int
 }
-
+note top of Oferta: ver si esta ok esto modelado así.\n como se si aplica el descuento de temporada?
 
 together {
     object Persona {
@@ -54,6 +54,7 @@ together {
     object Editorial {
         nombre: str
     }
+
 }
 
 together {
@@ -89,6 +90,8 @@ object Lanzamiento {
     ejemplares: int
     limite_reservas: int
 }
+note right of Lanzamiento: la dirección de libro y lazamiento\n en el diagrama de secuencia
+
 
 object Cuenta {
     credito: int

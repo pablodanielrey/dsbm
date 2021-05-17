@@ -22,6 +22,7 @@ activate s
         loop libro in libros
             l -> libro : agregate_si_stock(libros_disponibles)
         end
+        note left : analizar si esta ok o no se modela\n modelar el tema de agregar o filtrar colecciones
         return libros_disponibles
     deactivate l
     c <-- s : libros_disponibles
@@ -42,6 +43,7 @@ activate s
                 activate ingreso
                     libro <-- ingreso : costo
                 deactivate ingreso
+                note right : analizar tema de ofertas\n como modelarlas\n si es lanzamiento\n si es temporada\n etc
                 libro -> libro : comision = calcular_comision(costo)
                 compra <-- libro : comision
             deactivate libro
@@ -84,10 +86,27 @@ activate s
                     l -> compra : agregar_costo(ultimos_costos)
                 end
             end
+
+            == Esta opción? ==
+
             alt ultimos_costos > 5000
                 l -> cliente : cambiar_categoria_vip()
                 activate cliente
                     cliente -> vip **: crear
+                    cliente -> cliente : asignar_categoria(vip)
+                    l <-- cliente
+                deactivate cliente
+            end
+
+            == O esta opción ==
+
+            alt ultimos_costos > 5000
+                l -> cliente : cambiar_categoria_vip()
+                activate cliente
+                    cliente -> vip : vip = obtener_instancia()
+                    activate vip
+                        cliente <-- vip : instancia
+                    deactivate vip
                     cliente -> cliente : asignar_categoria(vip)
                     l <-- cliente
                 deactivate cliente
