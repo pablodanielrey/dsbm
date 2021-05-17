@@ -120,3 +120,114 @@ deactivate s
 deactivate c
 
 @enduml
+
+@startuml consulta_sobre_modelado1
+
+participant Libreria as l
+participant Cliente as cliente
+participant "vip:ClienteVIP" as vip
+
+l -> l : cambiar_categoría_cliente()
+activate l
+    loop compra in compras
+        alt compra.fecha > principio_mes
+            l -> compra : agregar_costo(ultimos_costos)
+        end
+    end
+    note left : como modelar el tema de las colecciones?\n ultimos_costos=0\nfor compra in compras:\n  if compra.date <= inicio_mes:\n      compra.agregar_costo(ultimos_costos)
+
+    == Esta opción? ==
+
+    alt ultimos_costos > 5000
+        l -> cliente : cambiar_categoria_vip()
+        activate cliente
+            cliente -> vip **: crear
+            cliente -> cliente : asignar_categoria(vip)
+            l <-- cliente
+        deactivate cliente
+    end
+
+    == O esta opción ==
+
+    alt ultimos_costos > 5000
+        l -> cliente : cambiar_categoria_vip()
+        activate cliente
+            cliente -> vip : vip = obtener_instancia()
+            activate vip
+                cliente <-- vip : instancia
+            deactivate vip
+            cliente -> cliente : asignar_categoria(vip)
+            l <-- cliente
+        deactivate cliente
+    end
+
+    == O inclusive esta\n me gusta un poco mas\n ya que el proceso de selección de categoría dependería de la librería ==
+
+    alt ultimos_costos > 5000
+        l -> vip : vip = obtener_instancia()
+        activate vip
+            l <-- vip : instancia
+        deactivate vip
+
+        l -> cliente : cambiar_categoria(vip)
+        activate cliente
+            l <-- cliente
+        deactivate cliente
+    end
+
+
+deactivate l
+@enduml
+
+@startuml consulta_sobre_modelado2_categoría
+
+participant Libreria as l
+participant Cliente as cliente
+participant "vip:ClienteVIP" as vip
+
+
+l -> l : cambiar_categoría_cliente()
+activate l
+
+    == Esta opción? ==
+
+    alt ultimos_costos > 5000
+        l -> cliente : cambiar_categoria_vip()
+        activate cliente
+            cliente -> vip **: crear
+            cliente -> cliente : asignar_categoria(vip)
+            l <-- cliente
+        deactivate cliente
+    end
+
+    == O esta opción ==
+
+    alt ultimos_costos > 5000
+        l -> cliente : cambiar_categoria_vip()
+        activate cliente
+            cliente -> vip : vip = obtener_instancia()
+            activate vip
+                cliente <-- vip : instancia
+            deactivate vip
+            cliente -> cliente : asignar_categoria(vip)
+            l <-- cliente
+        deactivate cliente
+    end
+
+    == O inclusive esta\n me gusta un poco mas\n ya que el proceso de selección de categoría dependería de la librería ==
+
+    alt ultimos_costos > 5000
+        l -> vip : vip = obtener_instancia()
+        activate vip
+            l <-- vip : instancia
+        deactivate vip
+
+        l -> cliente : cambiar_categoria(vip)
+        activate cliente
+            l <-- cliente
+        deactivate cliente
+    end
+
+
+deactivate l
+@enduml
