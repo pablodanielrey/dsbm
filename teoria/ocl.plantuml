@@ -1,0 +1,81 @@
+@startuml
+
+together {
+
+    class Carrera {
+        nombre: str
+    }
+
+    class Materia {
+        nombre: str
+    }
+
+    class Tema {
+        nombre: str
+        descripcion: str
+    }
+
+}
+
+together {
+
+    class Persona {
+        nombres: str
+        dni: str
+        direccion: str
+    }
+
+    class Profesor {
+
+    }
+
+    class Alumno {
+        legajo: str
+    }
+
+}
+
+note as ocl
+    -- ninguna materia tiene mas de 250 alumnos inscriptos
+    context Materia inv:
+        Alumnos->allInstances()->collect(a:Alumno | a.inscripto == self)->size() <= 250
+
+    -- las materias de una carrera no pueden tener el mismo nombre.
+    -- (o lo que es lo mismo, si 2 materias tienen nombres iguales en la misma carrera entonces son la misma materia)
+    context Carrera inv:
+        self.materias->forAll(m1, m2 : Materia | 
+                                    m1.pertenece == m2.pertenece and m1.nombre == m2.nombre 
+                                    implies 
+                                        m1 == m2)
+
+    -- Un alumno no puede estar inscripto en mas de 7 materias por vez
+    context Alumno inv:
+        self.inscripto->size() <= 7
+
+    -- cada profesor es experto en al menos un tema.
+    context Profesor inv:
+        self.experto->size() >= 1
+
+    -- cada profesor dicta a lo sumo 3 materias
+    context Profesor inv:
+        self.dicta->size() >= 3
+
+    -- los profesores son expertos en el tema de las materias que dictan
+    context Profesor inv:
+        self.dicta->forAll(m:Materia | self.experto.exists(t:Tema | t.pertenece == m))
+
+
+end note
+
+
+Materia "(1..1)" <- Tema : pertenece
+Materia -> "(1..*)" Carrera : pertenece
+
+Alumno --> "(0..*)" Materia : inscripto
+Profesor --> "(0..*)" Tema : experto
+Profesor --> "(0..*)" Materia : dicta
+
+Persona <|-- Profesor
+Persona <|-- Alumno
+
+@enduml
