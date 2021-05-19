@@ -38,7 +38,7 @@ together {
 note as ocl
     -- ninguna materia tiene mas de 250 alumnos inscriptos
     context Materia inv:
-        Alumnos->allInstances()->collect(a:Alumno | a.inscripto == self)->size() <= 250
+        Alumno.allInstances()->collect(a:Alumno | a.inscripto == self)->size() <= 250
 
     -- las materias de una carrera no pueden tener el mismo nombre.
     -- (o lo que es lo mismo, si 2 materias tienen nombres iguales en la misma carrera entonces son la misma materia)
