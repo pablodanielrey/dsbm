@@ -15,6 +15,127 @@ together {
 
     class Materia {
         nombre: str
+        incribirAlumno(a:Alumno): void
+    }
+
+    class Tema {
+        nombre: str
+        descripcion: str
+    }
+
+}
+
+together {
+
+    class Persona {
+        nombres: str
+        apellido: str
+        dni: str
+        direccion: str
+    }
+
+    class Profesor {
+
+    }
+
+    class Alumno {
+        legajo: str
+    }
+
+}
+
+!$s = 17
+!$color = "white"
+!$color_title = "cyan"
+
+note as ocl
+    <color:$color_title><size:$s>-- ninguna materia tiene mas de 250 alumnos inscriptos</size>
+    <color:$color>context Materia inv:
+    <color:$color>      self.alumnos_inscriptos->size() <= 250    
+
+    <color:$color_title><size:$s>-- las materias de una carrera no pueden tener el mismo nombre.
+    <color:$color_title><size:$s>-- (o lo que es lo mismo, si 2 materias tienen nombres iguales en la misma carrera entonces son la misma materia)
+
+    <color:$color>context Carrera inv:
+    <color:$color>      self.materias->forAll(m1, m2 : Materia | 
+    <color:$color>               m1.nombre = m2.nombre
+    <color:$color>               implies 
+    <color:$color>               m1 = m2)
+
+    <color:$color_title><size:$s>-- Un alumno no puede estar inscripto en mas de 7 materias por vez
+
+    <color:$color>context Alumno inv:
+    <color:$color>    self.inscripto->size() <= 7
+
+    <color:$color_title><size:$s>-- cada profesor es experto en al menos un tema.
+
+    <color:$color>context Profesor inv:
+    <color:$color>    self.experto->size() >= 1
+
+    <color:$color_title><size:$s>-- cada profesor dicta a lo sumo 3 materias
+
+    <color:$color>context Profesor inv:
+    <color:$color>    self.dicta->size() >= 3
+
+    <color:$color_title><size:$s>-- los profesores son expertos en el tema de las materias que dictan
+
+    <color:$color>context Profesor inv:
+    <color:$color>    self.dicta->forAll(m:Materia | self.experto.includes(m.tema))
+end note
+
+note as eje3
+    <color:$color_title><size:$s>-- ejercicio 3
+    <color:$color>context Carrera::agregarMateria(m:Materia): void
+    <color:$color_title>pre: 
+    <color:$color>    not (self.materias->includes(m))
+    <color:$color_title>post:
+    <color:$color>    (self.materias->size() = materias->size@pre() + 1) and (self.materias->includes(m))
+end note
+
+note as eje4
+    <color:$color_title><size:$s>-- ejercicio 4
+    <color:$color>context Materia::inscribirAlumno(a:Alumno): void
+    <color:$color_title>pre:
+    <color:$color>  not self.alumnos.includes(a)
+    <color:$color_title>post:
+    <color:$color>  self.alumnos.includes(a) and (self.alumnos.size() = self.alumnos.size@pre() + 1)
+
+end note
+
+
+ocl --> eje3
+eje3 --> eje4
+
+Materia -> "(1..1)" Tema : tema
+Materia "(0..*)" <- Carrera : materias
+
+Alumno "(0..*)" <--  Materia : alumnos
+Profesor <--> "(0..*)" Tema : experto
+Profesor --> "(0..*)" Materia : dicta
+
+Persona <|-- Profesor
+Persona <|-- Alumno
+
+@enduml
+
+@startuml asociaciones_inversas
+
+skinparam Note {
+    BackgroundColor black
+    FontColor white
+}
+
+
+together {
+
+    class Carrera {
+        codigo: str
+        nombre: str
+        agregarMateria(m:Materia): void
+    }
+
+    class Materia {
+        nombre: str
     }
 
     class Tema {
@@ -50,22 +171,25 @@ together {
 
 note as ocl
     <color:$color_title><size:$s>-- ninguna materia tiene mas de 250 alumnos inscriptos</size>
+
     <color:$color>context Materia inv:
-    <color:$color>      let alumnos_inscriptos = Alumno.allInstances()->select(a:Alumno | a.inscripto = self)
-    <color:$color>      alumnos_inscriptos->size() <= 250
+    <color:$color>      self.alumnos->size() <= 250
+  
 
     <color:$color_title><size:$s>-- las materias de una carrera no pueden tener el mismo nombre.
     <color:$color_title><size:$s>-- (o lo que es lo mismo, si 2 materias tienen nombres iguales en la misma carrera entonces son la misma materia)
+
     <color:$color>context Carrera inv:
-    <color:$color>      let materias_de_carrera = Materia.allInstances()->select(m:Materia| m.pertenece = self)
-    <color:$color>      materias_de_carrera->forAll(m1, m2 : Materia | 
+    <color:$color>      self.contiene->forAll(m1, m2 : Materia | 
     <color:$color>               m1.nombre = m2.nombre
     <color:$color>               implies 
     <color:$color>               m1 = m2)
 
     <color:$color_title><size:$s>-- Un alumno no puede estar inscripto en mas de 7 materias por vez
+
     <color:$color>context Alumno inv:
-    <color:$color>    self.inscripto->size() <= 7
+    <color:$color>    let materias = Materia.allInstances()->select(m:Materia | m.alumnos->includes(self))
+    <color:$color>    materias->size() <= 7
 
     <color:$color_title><size:$s>-- cada profesor es experto en al menos un tema.
     <color:$color>context Profesor inv:
@@ -73,10 +197,12 @@ note as ocl
 
     <color:$color_title><size:$s>-- cada profesor dicta a lo sumo 3 materias
     <color:$color>context Profesor inv:
-    <color:$color>    self.dicta->size() >= 3
+    <color:$color>    let materias = Materia.allInstances()->select(m:Materia | m.profesores->includes(self))
+    <color:$color>    materias->size() >= 3
 
     <color:$color_title><size:$s>-- los profesores son expertos en el tema de las materias que dictan
     <color:$color>context Profesor inv:
+    <color:$color>    let materias = Materia.allInstances()->select(m:Materia | m.profesores->includes(self))
     <color:$color>    self.dicta->forAll(m:Materia | self.experto.exists(t:Tema | t.pertenece = m))
 end note
 
@@ -98,17 +224,25 @@ note as eje4
     <color:$color>    (m->pertenece->size() >= 1) and (not self.inscripto->includes(m))
     <color:$color_title>post:
     <color:$color>    (self.inscripto->includes(m)) and (self.inscripto->size() = self.inscripto()->size@pre() + 1)
+
+    <color:$color_title>la asociación inversa.
+    <color:$color>context Materia::inscribir_alumno(a:Alumno):void
+    <color:$color_title>pre:
+    <color:$color>    (m->pertenece->size() >= 1) and (not self.inscripto->includes(m))
+    <color:$color_title>post:
+    <color:$color>    (self.inscripto->includes(m)) and (self.inscripto->size() = self.inscripto()->size@pre() + 1)
+
 end note
 
 ocl --> eje3
 eje3 --> eje4
 
 Materia "(1..1)" <- Tema : pertenece
-Materia -> "(1..*)" Carrera : pertenece
+Materia "(0..*)" <- Carrera : contiene
 
-Alumno --> "(0..*)" Materia : inscripto
+Alumno "(0..*)" <-- Materia : alumnos
 Profesor --> "(0..*)" Tema : experto
-Profesor --> "(0..*)" Materia : dicta
+Profesor "(1..*)" <-- Materia : profesores
 
 Persona <|-- Profesor
 Persona <|-- Alumno
