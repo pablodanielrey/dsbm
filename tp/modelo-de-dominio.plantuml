@@ -2,11 +2,16 @@
 
 
 object Oferta {
-    lazamiento: int
     temporada: int
     reedicion: int
     últimos_volúmenes: int
 }
+
+object OfertaLanzamiento {
+
+}
+
+OfertaLanzamiento <- Oferta
 note top of Oferta: ver si esta ok esto modelado así.\n como se si aplica el descuento de temporada?
 
 together {

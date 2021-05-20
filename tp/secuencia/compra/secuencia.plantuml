@@ -31,10 +31,10 @@ deactivate s
 c -> s : seleccionar_libro(libro)
 activate s
     s -> s : cliente = obtener_cliente_de_sesion()
-    s -> l : comprar(cliente, libro)
-    activate l 
-        l -> compra ** : crear
-        l -> compra : calcular_costo(cliente, libro)
+    s -> cliente : comprar(cliente, libro)
+    activate cliente
+        cliente -> compra ** : crear
+        cliente -> compra : calcular_costo(cliente, libro)
         activate compra
             'el costo depende del tipo de libro y del tipo de cliente
             compra -> libro : comision = calcular_comision()
@@ -56,7 +56,7 @@ activate s
         deactivate compra
         l -> l : almacenar_compra_a_confirmar(cliente, compra)
         s <-- l : costo
-    deactivate l
+    deactivate cliente
     return obtener_informacion_pago_para_costo
 deactivate s
 
@@ -111,6 +111,21 @@ activate s
                     l <-- cliente
                 deactivate cliente
             end
+
+            == O inclusive esta\n me gusta un poco mas\n ya que el proceso de selección de categoría dependería de la librería ==
+
+            alt ultimos_costos > 5000
+                l -> vip : vip = obtener_instancia()
+                activate vip
+                    l <-- vip : instancia
+                deactivate vip
+
+                l -> cliente : cambiar_categoria(vip)
+                activate cliente
+                    l <-- cliente
+                deactivate cliente
+            end
+
         deactivate l
         s <-- l : datos_compra
     deactivate l
@@ -119,6 +134,31 @@ deactivate s
 
 deactivate c
 
+@enduml
+
+@startuml
+
+actor Cliente as c
+participant Sistema as s
+participant Libreria as l
+participant Compra as compra
+participant "libro:Libro" as libro
+participant "cliente:Cliente" as cliente
+participant "ingreso:Ingreso" as ingreso
+participant "cuenta:Cuenta" as cuenta
+participant "vip:ClienteVIP" as vip
+
+            alt ultimos_costos > 5000
+                l -> vip : vip = obtener_instancia()
+                activate vip
+                    l <-- vip : instancia
+                deactivate vip
+
+                l -> cliente : cambiar_categoria(vip)
+                activate cliente
+                    l <-- cliente
+                deactivate cliente
+            end
 @enduml
 
 @startuml consulta_sobre_modelado1
