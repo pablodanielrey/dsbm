@@ -1,18 +1,25 @@
 @startuml
 
+together {
 
-object Oferta {
-    temporada: int
-    reedicion: int
-    últimos_volúmenes: int
+    object Oferta {
+        fecha_inicio: date
+        fecha_fin: date
+        descuento: int
+    }
+
+    object OfertaLanzamiento
+    object OfertaTemporada
+    object OfertaUltimosVolumenes
+    object OfertaReedicion
+
+    OfertaLanzamiento -u- Oferta
+    OfertaReedicion -u- Oferta
+    OfertaUltimosVolumenes -u- Oferta
+    OfertaTemporada -u- Oferta
+
 }
 
-object OfertaLanzamiento {
-
-}
-
-OfertaLanzamiento <- Oferta
-note top of Oferta: ver si esta ok esto modelado así.\n como se si aplica el descuento de temporada?
 
 together {
     object Persona {

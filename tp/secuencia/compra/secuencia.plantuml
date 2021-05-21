@@ -14,24 +14,22 @@ participant "cuenta:Cuenta" as cuenta
 participant "vip:ClienteVIP" as vip
 
 activate c
-c -> s : libros = iniciar_compra(cliente)
-activate s
-    s -> s : almacenar_en_sesion(cliente)
-    s -> l : libros = buscar_libros_disponibles()
+c -> l : libros = iniciar_compra(cliente)
+activate l
+    l -> l : almacenar_en_sesion(cliente)
+    l -> l : libros = buscar_libros_disponibles()
     activate l
-        loop libro in libros
-            l -> libro : agregate_si_stock(libros_disponibles)
-        end
-        note left : analizar si esta ok o no se modela\n modelar el tema de agregar o filtrar colecciones
-        return libros_disponibles
+    loop libro in libros
+        l -> libro : agregate_si_stock(libros_disponibles)
+    end
     deactivate l
-    c <-- s : libros_disponibles
-deactivate s
+    c <-- l : libros_disponibles
+deactivate l
 
-c -> s : seleccionar_libro(libro)
-activate s
-    s -> s : cliente = obtener_cliente_de_sesion()
-    s -> cliente : comprar(cliente, libro)
+c -> l : seleccionar_libro(libro)
+activate l
+    l -> l : cliente = obtener_cliente_de_sesion()
+    l -> cliente : comprar(cliente, libro)
     activate cliente
         cliente -> compra ** : crear
         cliente -> compra : calcular_costo(cliente, libro)
@@ -55,10 +53,9 @@ activate s
             l <-- compra : costo
         deactivate compra
         l -> l : almacenar_compra_a_confirmar(cliente, compra)
-        s <-- l : costo
     deactivate cliente
     return obtener_informacion_pago_para_costo
-deactivate s
+deactivate l
 
 c -> s : enviar_info_pago(info)
 activate s
