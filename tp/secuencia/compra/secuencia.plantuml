@@ -60,10 +60,7 @@ activate l
 
                 compra <-- libro : costo_total
             deactivate libro
-
-
-
-                
+               
             cliente <-- compra
         deactivate compra
         cliente -> cliente : agregar(compra)
@@ -82,6 +79,10 @@ activate l
     l -> compra : confirmar(cliente)
     activate compra
         ref over compra, libro : c9 - Actualizar Stock
+        compra -> libro : actualizar_stock()
+        activate libro
+            compra <-- libro
+        deactivate libro
 
         compra -> cliente : descontar_monto(monto)
         activate cliente
