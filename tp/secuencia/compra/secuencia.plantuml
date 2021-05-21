@@ -4,23 +4,23 @@
 title c12 Comprar Libro - Flujo normal
 
 actor Cliente as c
-participant Sistema as s
 participant Libreria as l
+participant "cliente:Cliente" as cliente
 participant Compra as compra
 participant "libro:Libro" as libro
-participant "cliente:Cliente" as cliente
 participant "ingreso:Ingreso" as ingreso
 participant "cuenta:Cuenta" as cuenta
+participant "categoria:Categoria" as categoria
 participant "vip:ClienteVIP" as vip
 
 activate c
 c -> l : libros = iniciar_compra(cliente)
 activate l
     l -> l : almacenar_en_sesion(cliente)
-    l -> l : libros = buscar_libros_disponibles()
+    l -> l : libros_disponibles = buscar_libros_disponibles()
     activate l
     loop libro in libros
-        l -> libro : agregate_si_stock(libros_disponibles)
+        l -> libro : libro.agregate_si_hay_stock(libros_disponibles)
     end
     deactivate l
     c <-- l : libros_disponibles
@@ -29,105 +29,93 @@ deactivate l
 c -> l : seleccionar_libro(libro)
 activate l
     l -> l : cliente = obtener_cliente_de_sesion()
-    l -> cliente : comprar(cliente, libro)
+    l -> cliente : comprar(libro)
     activate cliente
         cliente -> compra ** : crear
         cliente -> compra : calcular_costo(cliente, libro)
         activate compra
             'el costo depende del tipo de libro y del tipo de cliente
-            compra -> libro : comision = calcular_comision()
+            compra -> libro : costo_total = calcular_costo(cliente)
+            note right: El libro sabe como calcular costo+comisión+envío\nIngreso sabe el costo\npor ahi este algoritmo debería corresponder a la compra?
             activate libro
                 libro -> ingreso : costo = costo()
                 activate ingreso
                     libro <-- ingreso : costo
                 deactivate ingreso
-                note right : analizar tema de ofertas\n como modelarlas\n si es lanzamiento\n si es temporada\n etc
                 libro -> libro : comision = calcular_comision(costo)
-                compra <-- libro : comision
+
+                alt libro == Impreso
+                    libro -> cliente : costo_envio = costo_envio()
+                    activate cliente
+                        cliente -> categoria : costo_envio = costo_envio()
+                        note right : el costo depende de la categoría del cliente
+                        activate categoria
+
+                            'cliente <-- categoria
+                        deactivate categoria
+
+                        libro <-- cliente
+                    deactivate cliente
+                end
+
+                compra <-- libro : costo_total
             deactivate libro
-            compra -> cliente : costo_envio = calcular_envio(libro)
-            activate cliente
-                compra <-- cliente : costo_envio
-            deactivate cliente
-            compra -> compra : calcular_costo(comision, costo_envio)
-            l <-- compra : costo
+
+
+
+                
+            cliente <-- compra
         deactivate compra
-        l -> l : almacenar_compra_a_confirmar(cliente, compra)
+        cliente -> cliente : agregar(compra)
+
+        l <-- cliente : compra
     deactivate cliente
-    return obtener_informacion_pago_para_costo
+
+    return compra
 deactivate l
 
-c -> s : enviar_info_pago(info)
-activate s
-    s -> s : cliente = obtener_cliente_de_sesion()
-    s -> l : finalizar_compra(cliente, info)
-    activate l
-        l -> l : compra = buscar_compra(cliente)
-        l -> compra : finalizar_compra(info)
-        activate compra
-            compra -> libro : actualizar_stock()
-            compra -> cliente : cobrar(costo)
-            activate cliente
-                cliente -> cuenta : cobrar(costo)
-                activate cuenta
-                    cliente <-- cuenta: ok
-                deactivate cuenta
-                compra <-- cliente : ok
-            deactivate cliente
-            l <-- compra : datos_compra
-        deactivate compra
-        l -> l : cambiar_categoría_cliente()
-        activate l
-            loop compra in compras
-                alt compra.fecha > principio_mes
-                    l -> compra : agregar_costo(ultimos_costos)
-                end
+c -> l : confirmar_compra(compra)
+note right : si al cliente le parece correcto el monto confirma la compra
+activate l
+    l -> l : cliente = obtener_cliente_de_sesion()
+
+    l -> compra : confirmar(cliente)
+    activate compra
+        ref over compra, libro : c9 - Actualizar Stock
+
+        compra -> cliente : descontar_monto(monto)
+        activate cliente
+            cliente -> cuenta : ok = descontar_monto(monto)
+            activate cuenta
+                cliente <-- cuenta : ok
+            deactivate cuenta
+            
+            compra <-- cliente : ok
+        deactivate cliente
+
+        l <-- compra : ok
+    deactivate compra
+
+
+    l -> cliente : cambiar_categoria()
+    activate cliente
+        loop montos = 0; compra in compras
+            alt compra.fecha >= inicio_mes
+                cliente -> compra : agregar_monto_para_cambio_categoria(montos)
+                note right : deje la lógica en el cliente.
+                activate compra
+                deactivate compra
             end
+        end 
+        alt montos > 5000
+            cliente -> vip ** : categoria = <<crear>>
+            cliente -> cliente : asignar_categoria(categoria)
+        end
+        l <-- cliente
+    deactivate cliente
 
-            == Esta opción? ==
-
-            alt ultimos_costos > 5000
-                l -> cliente : cambiar_categoria_vip()
-                activate cliente
-                    cliente -> vip **: crear
-                    cliente -> cliente : asignar_categoria(vip)
-                    l <-- cliente
-                deactivate cliente
-            end
-
-            == O esta opción ==
-
-            alt ultimos_costos > 5000
-                l -> cliente : cambiar_categoria_vip()
-                activate cliente
-                    cliente -> vip : vip = obtener_instancia()
-                    activate vip
-                        cliente <-- vip : instancia
-                    deactivate vip
-                    cliente -> cliente : asignar_categoria(vip)
-                    l <-- cliente
-                deactivate cliente
-            end
-
-            == O inclusive esta\n me gusta un poco mas\n ya que el proceso de selección de categoría dependería de la librería ==
-
-            alt ultimos_costos > 5000
-                l -> vip : vip = obtener_instancia()
-                activate vip
-                    l <-- vip : instancia
-                deactivate vip
-
-                l -> cliente : cambiar_categoria(vip)
-                activate cliente
-                    l <-- cliente
-                deactivate cliente
-            end
-
-        deactivate l
-        s <-- l : datos_compra
-    deactivate l
-    c <-- s : datos_compra
-deactivate s
+    c <-- l
+deactivate l
 
 deactivate c
 

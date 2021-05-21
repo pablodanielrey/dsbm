@@ -112,8 +112,7 @@ object Cuenta {
 
 Libreria -> Cliente : clientes
 Libreria -> Libro : libros
-Libreria -> Compra : compras
-Libreria -> Oferta : ofertas
+Libreria -> "(0..*)" Oferta : ofertas
 Libreria -> Lanzamiento : lanzamientos
 
 /'
@@ -138,7 +137,7 @@ Cliente -d-> "1" Cuenta : cuenta
 Compra -> "*" Libro : libro
 Compra -d- CompraStock
 Compra -d- Reserva
-Compra -> Cliente : cliente
+Compra "(0..*)" <- Cliente : compras
 
 Libro --> "*" Persona : autores
 Libro --> "*" Genero: genero
