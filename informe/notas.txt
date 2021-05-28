@@ -1,0 +1,12 @@
+problemas para unificar los documentos.
+es complejo ir modificando cada uno de los diagramas.
+
+
+es muy simple poner notas y sacarlas.
+simplifica sesiones de consultas
+
+
+es muy simple generar alternativas para consulta.
+solo copy-paste
+
+muy complejo tener control del layout.
