@@ -1,0 +1,99 @@
+@startuml
+
+
+
+together {
+    class Persona {
+        nombre: str
+        apellido: str
+        direccion: str
+        pais: str
+        ciudad: str
+        cp: str
+        email: str
+        telefono: str
+    }
+
+    class Cliente {
+
+    }
+
+    Persona <|-- Cliente
+}
+
+class Recomendacion {
+    libro: Libro
+    recomienda: Cliente
+    recomendado: Cliente
+}
+
+class Preferencias {
+    notificar: bool
+    genero: str
+    autor: str
+    autores_comprados: bool
+    generos_comprados: bool
+}
+
+class Cuenta {
+    credito: float
+}
+
+together {
+    class Categoria {
+
+    }
+
+    class ClienteNormal {
+
+    }
+
+    class ClienteVIP {
+
+    }
+
+
+
+    Categoria <|-- ClienteNormal
+    Categoria <|-- ClienteVIP
+}
+
+
+class Libreria {
+
+}
+
+
+class Lanzamiento {
+    fecha_inicio : date
+    fecha_lanzamiento: date
+    ejemplares : int
+    limite_reservas : int
+}
+
+together {
+    class Genero {
+        nombre: str
+    }
+
+    class Editorial {
+        nombre: srt
+    }
+
+    class Libro {
+        genero : Genero
+        editorial : Editorial
+    }
+
+    class Digital {
+    }
+
+    class Impreso {
+
+    }
+
+    Libro <|-- Digital  
+    Libro <|-- Impreso
+}
+
+@enduml

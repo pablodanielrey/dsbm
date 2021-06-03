@@ -33,7 +33,6 @@ together {
         cp: str
         email: str
         teléfono: str
-        crédito: float
     }
 
     object Categoría
@@ -104,7 +103,7 @@ object Lanzamiento {
 }
 
 object Cuenta {
-    credito: int
+    credito: float
 }
 
 

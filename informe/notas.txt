@@ -10,3 +10,8 @@ es muy simple generar alternativas para consulta.
 solo copy-paste
 
 muy complejo tener control del layout.
+
+
+problemas para cuando se modifica en un diagrama de clases por ejemplo el modelo.
+llevar esos cambios al modelo de dominio y sincronizarlo.
+o cuando se realizan cambios en el modelo de dominio, llevar esos cambios al de clases.
