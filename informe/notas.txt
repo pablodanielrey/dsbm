@@ -78,3 +78,9 @@ y también como se usa otra sintaxis al diagrama de dominio de sistema, es
 complejo cuando cambia algo en el de clases actualizarlo en el de dominio.
 
 --
+
+con cada cambio del diagrmaa te cambia el layout.
+asi que las cosas que estaba acostumbrado a verlas en determinado lugar del diagrama
+hay que analizarlo nuevamente.
+para diagramas simples esto no genera tanto impacto
+para diagramas complejos eso si genera un problema serio

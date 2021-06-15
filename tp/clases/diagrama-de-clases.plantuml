@@ -38,12 +38,6 @@ together {
     class Persona {
         nombre: str
         apellido: str
-        direccion: str
-        pais: str
-        ciudad: str
-        cp: str
-        email: str
-        telefono: str
     }
 
     class Cliente {
@@ -76,6 +70,7 @@ together {
     class Categoria {
         + costo_envio(): float
         - evaluar(compras:List<Compra>):boolean
+        {{static}} - 
     }
 
     class ClienteNormal {

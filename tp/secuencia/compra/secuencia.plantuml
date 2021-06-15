@@ -208,16 +208,6 @@ activate cliente
     l <-- cliente
 deactivate cliente
 
-
-
-
-
 @enduml
 
 
-
-class Categoria {
-    
-    def crear_y_asignar_categoria(cliente, compras_filtradas):
-
-}
