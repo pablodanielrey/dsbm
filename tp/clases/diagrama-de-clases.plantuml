@@ -1,6 +1,38 @@
-@startuml
+@startuml diagrama_de_clases
 
 
+together {
+
+    class Oferta {
+        fecha_inicio: date
+        fecha_fin: date
+        descuento: int
+
+        + calcular_descuento(compra:Compra)
+        - calcular_decuento(compra:Compra): monto
+    }
+
+    class OfertaLanzamiento {
+        + calcular_descuento(compra:Compra)
+    }
+
+    class OfertaTemporada {
+        + calcular_descuento(compra:Compra)
+    }
+
+    class OfertaUltimosVolumenes {
+        + calcular_descuento(compra:Compra)
+    }
+
+    class OfertaReedicion {
+        + calcular_descuento(compra:Compra)
+    }
+
+    Oferta <|-- OfertaLanzamiento
+    Oferta <|-- OfertaReedicion
+    Oferta <|-- OfertaUltimosVolumenes
+    Oferta <|-- OfertaTemporada
+}
 
 together {
     class Persona {
@@ -15,85 +47,185 @@ together {
     }
 
     class Cliente {
+        email: str
+        teléfono: str
 
+        + comprar(libro:Libro): Compra
+        + costo_envio(): float
+        + descontar_monto(monto:float)
+        + cambiar_categoria()
+
+        - agregar(compra:Compra)
+    }
+    Persona <|-- Cliente
+
+    class Direccion {
+        calle: str
+        numero: str
+        depto: str
+        cp: str
+        ciudad: str
+        pais: str
     }
 
-    Persona <|-- Cliente
-}
-
-class Recomendacion {
-    libro: Libro
-    recomienda: Cliente
-    recomendado: Cliente
-}
-
-class Preferencias {
-    notificar: bool
-    genero: str
-    autor: str
-    autores_comprados: bool
-    generos_comprados: bool
-}
-
-class Cuenta {
-    credito: float
+    Cliente -l-> "(1..1)" Direccion : direccion
+    Cliente -d-> "(1..1)" Categoria : categoria
 }
 
 together {
     class Categoria {
-
+        + costo_envio(): float
     }
 
     class ClienteNormal {
-
+        
     }
 
     class ClienteVIP {
-
+        
     }
-
-
 
     Categoria <|-- ClienteNormal
     Categoria <|-- ClienteVIP
 }
 
+together {
+    class Recarga {
+        fecha: date
+        monto: float
+    }
 
-class Libreria {
+    class Preferencias {
+        notificar: bool
+        género: str
+        autor: str
+        autores_comprados: bool
+        generos_comprados: bool
+    }
+
+    class Cuenta {
+        credito: float
+
+        + descontar_monto(monto:float)
+    }
+
+    Recarga -> Cuenta : cuenta
+    Cliente -d-> "(0..1)" Preferencias : preferencias
+    Cliente -d-> "(1..1)" Cuenta : cuenta
 
 }
 
-
-class Lanzamiento {
-    fecha_inicio : date
-    fecha_lanzamiento: date
-    ejemplares : int
-    limite_reservas : int
+class Recomendacion {
+    fecha: date
 }
+Recomendacion --> "(1..1)" Cliente : recomiendado
+Recomendacion --> "(1..1)" Libro : libro
+Cliente -u-> "(0..*)" Recomendacion : recomendaciones
 
 together {
-    class Genero {
-        nombre: str
-    }
-
-    class Editorial {
-        nombre: srt
-    }
-
     class Libro {
-        genero : Genero
-        editorial : Editorial
-    }
+        título: str
+        idbn: str
+        generos: list<str>
+        editorial: str
 
+        + agregate_si_hay_stock(libros:List<Libro>) 
+        + calular_costo(cliente:Cliente)
+        + actualizar_stock(cantidad:int)
+        - calcular_comision(costo:float): float
+    }
     class Digital {
-    }
+        licencias: int
 
+        - calcular_comision(costo: float): float
+    }
     class Impreso {
-
+        copias: int
+        - calcular_comision(costo: float): float
     }
 
-    Libro <|-- Digital  
-    Libro <|-- Impreso
+    Libro -d- Digital
+    Libro -d- Impreso
+    Libro --> "(1..*)" Persona : autores
+    Libro --> "(1..*)" Ingreso : ingresos
+
 }
+
+
+together {
+
+    class Compra {
+        fecha: date
+        costo: float
+        cancelada: bool
+        + calcular_costo(cliente: Cliente, libro:Libro)
+        + obtener_fecha(): Date
+        + aplicar_descuento(monto:float)
+        + confirmar(cliente:Cliente): boolean
+    }
+
+    class CompraStock {
+        
+    }
+
+    class Reserva {
+        
+    }
+    note bottom of Reserva: La reserva esta modelada como un tipo de compra
+}
+
+class Ingreso {
+    fecha: date
+    cantidad: int
+    precio: float
+
+    + costo(): float
+}
+
+
+
+together {
+    class ServicioNotificaciones
+    class Notificacion {
+        fecha: Date
+    }
+
+    ServicioNotificaciones -d-> "(0..*)" Notificacion : notificaciones
+    Notificacion -l-> "(1..1)" Cliente : cliente
+}
+
+
+
+together {
+
+    class Preventa {
+        inicio: Date
+        lanzamiento : Date
+        ejemplares: int
+    }
+
+    Preventa "*" -> "(1..1)" Libro : libro
+}
+
+Compra -> "*" Libro : libro
+Compra -d- CompraStock
+Compra -d- Reserva
+Compra "(0..*)" <- Cliente : compras
+
+
+class Libreria {
+    + iniciar_compra(cliente:Cliente) : List<Libro>
+    + seleccionar_libro(libro:Libro) : Compra
+    + confirmar_compra(compra:Compra)
+
+    - almacenar_en_sesion(cliente:Cliente)
+    - obtener_cliente_de_sesion() : Cliente
+    - buscar_libros_disponibles() : List<Libro>
+}
+
+Libreria --> "*" Preventa : lanzamientos
+Libreria --> Cliente : clientes
+Libreria -> Libro : libros
+Libreria -> "(0..*)" Oferta : ofertas
 
 @enduml

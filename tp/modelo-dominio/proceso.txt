@@ -1,0 +1,164 @@
+
+etapa 1 -
+
+usar nombres de dominio de problema no de solución
+especificar clases conceptuales de grano fino
+no inventar nuevos conceptos (del dominio de solución)
+
+
+1 - identificar sustantivos.
+
+libro
+venta
+digitales
+impresos
+
+título
+autor
+editorial
+isbn
+género
+
+comercio
+control
+inventario
+licencia
+copias
+
+compra
+cliente
+sitio
+
+nombres
+dirección
+pais
+ciudad
+cp
+calle 
+número
+depto
+teléfono
+email
+
+categoría
+cliente normal
+cliente vip
+
+crédito
+recarga
+venta
+precio
+precio de costo
+comisión
+gastos de envío
+
+gasto en compra
+
+stock
+
+pre-venta
+reserva
+límite de ejemplares
+
+notificaciones
+novedades
+lanzamientos
+servicio de notificaciones
+preferencias
+último mes
+
+ofertas
+
+lanzamiento
+temporada
+reedición
+últimos volúmenes
+
+lista de amigos
+recomendación
+recomendador
+
+buscador de libros
+título
+autor
+editorial
+género
+
+
+---
+
+2 - graficar los conceptos cantidatos.
+
+libro -
+venta - compra -
+digitales -
+impresos -
+
+título *
+autor *
+editorial  *
+isbn *
+género *
+
+comercio - libreria - 
+control de inventario ?
+licencia *
+copias *
+
+compra -
+cliente -
+sitio -
+
+nombres *
+dirección *
+pais *
+ciudad *
+cp *
+calle * 
+número *
+depto *
+teléfono *
+email *
+
+categoría -
+cliente normal -
+cliente vip -
+
+cuenta -
+crédito *
+recarga -
+venta = compra -
+
+precio = precio de costo + comisión + gastos envío
+precio de costo -
+
+stock = cantidad de licencias digitales + cantidad de copias de libro
+
+pre-venta -
+reserva -
+límite de ejemplares *
+
+notificacion -
+lanzamientos = ingresos -
+servicio de notificaciones -
+preferencias -
+último mes = filtro
+
+ofertas -
+lanzamiento -
+temporada -
+reedición -
+últimos volúmenes -
+
+lista de amigos
+recomendación -
+recomendador *
+
+buscador de libros
+título
+autor
+editorial
+género
+
+
+3 -

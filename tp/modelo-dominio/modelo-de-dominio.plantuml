@@ -1,0 +1,175 @@
+@startuml
+
+together {
+
+    object Oferta {
+        fecha_inicio: date
+        fecha_fin: date
+        descuento: int
+    }
+
+    object OfertaLanzamiento
+    object OfertaTemporada
+    object OfertaUltimosVolumenes
+    object OfertaReedicion
+
+    OfertaLanzamiento -u- Oferta
+    OfertaReedicion -u- Oferta
+    OfertaUltimosVolumenes -u- Oferta
+    OfertaTemporada -u- Oferta
+
+}
+
+
+
+
+together {
+    object Persona {
+        nombre: str
+        apellido: str
+    }
+    object Cliente {
+        email: str
+        teléfono: str
+    }
+    Persona -d- Cliente
+    Cliente -> "(0..*)" Cliente : amigo
+
+    object Direccion {
+        calle: str
+        numero: str
+        depto: str
+        cp: str
+        ciudad: str
+        pais: str
+    }
+    Cliente "*" --> "(1..1)" Direccion : direccion
+
+    object Categoria
+    object ClienteNormal
+    object ClienteVIP
+
+    Cliente -d-> "(1..1)" Categoria : categoria
+    Categoria -d- ClienteNormal
+    Categoria -d- ClienteVIP
+
+}
+
+together {
+    object Recarga {
+        fecha: date
+        monto: float
+    }
+
+    object Preferencias {
+        notificar: bool
+        género: str
+        autor: str
+        autores_comprados: bool
+        generos_comprados: bool
+    }
+
+    object Cuenta {
+        credito: float
+    }
+
+
+
+    Recarga -> Cuenta : cuenta
+    Cliente -d-> "(0..1)" Preferencias : preferencias
+    Cliente -d-> "(1..1)" Cuenta : cuenta
+
+}
+
+object Recomendacion {
+    fecha: date
+}
+Recomendacion --> "(1..1)" Cliente : recomiendado
+Recomendacion --> "(1..1)" Libro : libro
+Cliente -u-> "(0..*)" Recomendacion : recomendaciones
+
+together {
+    object Libro {
+        título: str
+        idbn: str
+        generos: list<str>
+        editorial: str
+    }
+    object Digital {
+        licencias: int
+    }
+    object Impreso {
+        copias: int
+    }
+
+    Libro -d- Digital
+    Libro -d- Impreso
+    Libro --> "(1..*)" Persona : autores
+    Libro --> "(1..*)" Ingreso : ingresos
+
+}
+
+
+together {
+
+    object Compra {
+        fecha: date
+        costo: float
+        cancelada: bool
+    }
+    object CompraStock {
+    }
+    object Reserva {
+    }
+    note bottom of Reserva: La reserva esta modelada como un tipo de compra
+}
+
+object Ingreso {
+    fecha: date
+    cantidad: int
+    precio: float
+}
+
+
+
+together {
+    object ServicioNotificaciones
+    object Notificacion {
+        fecha: Date
+    }
+
+    ServicioNotificaciones -d-> "(0..*)" Notificacion : notificaciones
+    Notificacion -l-> "(1..1)" Cliente : cliente
+}
+
+
+
+together {
+
+    object Preventa {
+        inicio: Date
+        lanzamiento : Date
+        ejemplares: int
+    }
+
+    Preventa "*" -> "(1..1)" Libro : libro
+}
+
+
+Compra -> "*" Libro : libro
+Compra -d- CompraStock
+Compra -d- Reserva
+Compra "(0..*)" <- Cliente : compras
+
+
+
+object Libreria {
+}
+
+Libreria --> "*" Preventa : lanzamientos
+Libreria --> Cliente : clientes
+Libreria -> Libro : libros
+Libreria -> "(0..*)" Oferta : ofertas
+
+
+@enduml

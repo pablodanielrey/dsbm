@@ -46,7 +46,7 @@ activate l
                 deactivate ingreso
                 libro -> libro : comision = calcular_comision(costo)
 
-                alt libro instance Impreso
+                alt instance(libro) == Impreso
                     libro -> cliente : costo_envio = costo_envio()
                     activate cliente
                         cliente -> categoria : costo_envio = costo_envio()
@@ -59,7 +59,7 @@ activate l
                         libro <-- cliente
                     deactivate cliente
                 end
-                note right: como indicar las alternativas de implementación\nde un método abstracto en cada subclase?
+                note right: aca uso polimorfismo como patrón de diseño
 
                 libro -> libro : costo_total = costo_envio + comision + costo
 
@@ -84,6 +84,9 @@ activate l
             note left : evalúo si la oferta es esta activa\ny aplica a la compra
             alt fecha > fecha_inicio and fecha < fecha_fin
                 oferta -> oferta : costo_actualizado = calcular_descuento(compra)
+                oferta -> compra : aplicar_descuento(costo_actualizado)
+                activate compra
+                deactivate compra
                 note right : se calcula el costo y \nse actualiza el monto dentro de la compra
             end
 
@@ -102,8 +105,9 @@ activate l
     l -> compra : confirmar(cliente)
     activate compra
         note right : c9 - Actualizar Stock\nes tan simple que no valía la pena ponerle una ref.
-        compra -> libro : actualizar_stock()
+        compra -> libro : actualizar_stock(cantidad)
         activate libro
+            note right : se descuenta del stock la \ncantidad de libros indicada
             compra <-- libro
         deactivate libro
 
@@ -124,10 +128,10 @@ activate l
     l -> cliente : cambiar_categoria()
     note right : c14 - Cambiar categoría cliente\nlo dejo aca en vez de hacerle una ref y dejarlo en otro diagrama
     activate cliente
+        cliente -> cliente : compras = obtener_compras()
         loop montos = 0; compra in compras
             alt compra.fecha >= inicio_mes
                 cliente -> compra : agregar_monto_para_cambio_categoria(montos)
-                note right : deje la lógica en el cliente.
                 activate compra
                 deactivate compra
             end
