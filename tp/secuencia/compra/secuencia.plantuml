@@ -12,6 +12,7 @@ participant "ingreso:Ingreso" as ingreso
 participant "cuenta:Cuenta" as cuenta
 participant "categoria:Categoria" as categoria
 participant "vip:ClienteVIP" as vip
+participant "normal:ClienteNormal" as normal
 participant "oferta:Oferta" as oferta
 
 activate c
@@ -128,18 +129,23 @@ activate l
     l -> cliente : cambiar_categoria()
     note right : c14 - Cambiar categoría cliente\nlo dejo aca en vez de hacerle una ref y dejarlo en otro diagrama
     activate cliente
-        cliente -> cliente : compras = obtener_compras()
-        loop montos = 0; compra in compras
-            alt compra.fecha >= inicio_mes
-                cliente -> compra : agregar_monto_para_cambio_categoria(montos)
+        cliente -> cliente : compras_filtradas = obtener_compras_desde(fecha_inicio)
+        activate cliente
+            loop compra in compras
+                cliente -> compra : agregate_si_fecha(fecha_inicio, compras_filtradas)
                 activate compra
                 deactivate compra
             end
-        end 
-        alt montos > 5000
-            cliente -> vip ** : categoria = <<crear>>
-            cliente -> cliente : asignar_categoria(categoria)
-        end
+        deactivate cliente
+        cliente -> categoria : cambiar_categoria(cliente, compras_filtradas)
+        activate categoria
+            categoria -> vip : cambiar = cambiar_categoria(cliente, compras_filtradas)
+            alt cambiar
+                categoria -> vip ** : crear 
+            end
+            categoria -> normal : cambiar_categoria(cliente, compras_filtradas)
+            cliente <-- categoria
+        deactivate categoria
         l <-- cliente
     deactivate cliente
 
@@ -150,4 +156,68 @@ deactivate c
 
 @enduml
 
+@startuml cambiar_categoria_cliente
 
+title Cambia a vip si las compras con > 5000 ultimo mes\nCambia a normal si hace 3 meses que no compra
+
+participant Libreria as l
+participant "cliente:Cliente" as cliente
+participant "categoria:Categoria" as categoria
+participant "<<abstract>>\n:Categoria" as ccategoria
+participant "vip:ClienteVIP" as vip
+participant "normal:ClienteNormal" as normal
+
+l -> cliente : cambiar_categoria()
+activate cliente
+    cliente -> cliente : compras_filtradas = obtener_compras_desde(fecha_inicio)
+    activate cliente
+        loop compra in compras
+            cliente -> compra : agregate_si_fecha(fecha_inicio, compras_filtradas)
+            activate compra
+            deactivate compra
+        end
+    deactivate cliente
+    cliente -> cliente : categoria = obtener_categoria()
+    activate cliente
+    deactivate cliente
+
+    cliente -> categoria : cambiar_categoria(cliente, compras_filtradas)
+    activate categoria
+        categoria -> categoria : mantener = evaluar(compras_filtradas)
+        alt !mantener
+            categoria -> ccategoria : crear_y_asignar_categoria(cliente, compras_filtradas)
+            activate ccategoria
+                loop c in subclass(Categoria)
+                    ccategoria -> ccategoria : ok = c.evaluar(compras_filtradas)
+                    alt ok && c == ClienteNormal
+                        ccategoria -> normal ** : crear
+                        ccategoria -> cliente : asignar_categoria(normal)
+                        activate cliente
+                        deactivate cliente
+                    else ok && c == ClienteVIP
+                        ccategoria -> vip ** : crear
+                        ccategoria -> cliente : asignar_categoria(vip)
+                        activate cliente
+                        deactivate cliente
+                    end
+                end
+            deactivate ccategoria
+        end
+        cliente <-- categoria
+    deactivate categoria
+    l <-- cliente
+deactivate cliente
+
+
+
+
+
+@enduml
+
+
+
+class Categoria {
+    
+    def crear_y_asignar_categoria(cliente, compras_filtradas):
+
+}

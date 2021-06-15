@@ -75,6 +75,7 @@ together {
 together {
     class Categoria {
         + costo_envio(): float
+        - evaluar(compras:List<Compra>):boolean
     }
 
     class ClienteNormal {
