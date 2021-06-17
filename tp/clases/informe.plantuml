@@ -1,0 +1,15 @@
+@startuml informe
+
+
+class Clase1 <<Algo>> {
+    metodo1(p:str)
+    metodo2(p:str)
+}
+
+class Clase2 <<Algo>> {
+    metodo1(p:str)
+}
+
+remove Clase1
+
+@enduml

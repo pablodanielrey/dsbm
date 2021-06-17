@@ -9,23 +9,19 @@ together {
         descuento: int
 
         + calcular_descuento(compra:Compra)
-        - calcular_decuento(compra:Compra): monto
+        - aplicar_decuento(compra:Compra)
     }
 
     class OfertaLanzamiento {
-        + calcular_descuento(compra:Compra)
     }
 
     class OfertaTemporada {
-        + calcular_descuento(compra:Compra)
     }
 
     class OfertaUltimosVolumenes {
-        + calcular_descuento(compra:Compra)
     }
 
     class OfertaReedicion {
-        + calcular_descuento(compra:Compra)
     }
 
     Oferta <|-- OfertaLanzamiento
@@ -45,11 +41,14 @@ together {
         teléfono: str
 
         + comprar(libro:Libro): Compra
-        + costo_envio(): float
         + descontar_monto(monto:float)
+        + costo_envio(): float
         + cambiar_categoria()
 
         - agregar(compra:Compra)
+        - obtener_compras_desde(fecha:Date): List<Compra>
+        - evaluar_categoria(compras:List<Compra>)
+        - set_categoria(categoria:Categoria)
     }
     Persona <|-- Cliente
 
@@ -69,8 +68,6 @@ together {
 together {
     class Categoria {
         + costo_envio(): float
-        - evaluar(compras:List<Compra>):boolean
-        {{static}} - 
     }
 
     class ClienteNormal {
@@ -109,6 +106,10 @@ together {
     Cliente -d-> "(0..1)" Preferencias : preferencias
     Cliente -d-> "(1..1)" Cuenta : cuenta
 
+}
+
+class Recomendacion {
+    algo: str
 }
 
 class Recomendacion {
@@ -158,6 +159,7 @@ together {
         + obtener_fecha(): Date
         + aplicar_descuento(monto:float)
         + confirmar(cliente:Cliente): boolean
+        + agregate_si_fecha(fecha:Date, compras:List<Compra>)
     }
 
     class CompraStock {

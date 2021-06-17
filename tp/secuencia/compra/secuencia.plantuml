@@ -82,12 +82,14 @@ activate l
                 oferta <-- compra : fecha
             deactivate compra
 
-            note left : evalúo si la oferta es esta activa\ny aplica a la compra
+            note right : evalúo si la oferta es esta activa\ny aplica a la compra
             alt fecha > fecha_inicio and fecha < fecha_fin
-                oferta -> oferta : costo_actualizado = calcular_descuento(compra)
-                oferta -> compra : aplicar_descuento(costo_actualizado)
-                activate compra
-                deactivate compra
+                oferta -> oferta : aplicar_descuento(compra)
+                activate oferta
+                    oferta -> compra : aplicar_descuento(costo_actualizado)
+                    activate compra
+                    deactivate compra
+                deactivate oferta
                 note right : se calcula el costo y \nse actualiza el monto dentro de la compra
             end
 
@@ -125,9 +127,7 @@ activate l
         l <-- compra : ok
     deactivate compra
 
-
     l -> cliente : cambiar_categoria()
-    note right : c14 - Cambiar categoría cliente\nlo dejo aca en vez de hacerle una ref y dejarlo en otro diagrama
     activate cliente
         cliente -> cliente : compras_filtradas = obtener_compras_desde(fecha_inicio)
         activate cliente
@@ -137,15 +137,23 @@ activate l
                 deactivate compra
             end
         deactivate cliente
-        cliente -> categoria : cambiar_categoria(cliente, compras_filtradas)
-        activate categoria
-            categoria -> vip : cambiar = cambiar_categoria(cliente, compras_filtradas)
-            alt cambiar
-                categoria -> vip ** : crear 
+
+
+        cliente -> cliente : evaluar_categoria(compras_filtrada)
+        activate cliente
+            alt condicion_vip && categoría_actual != ClienteVIP
+                cliente -> vip ** : crear
+                cliente -> cliente : set_categoria(vip)
             end
-            categoria -> normal : cambiar_categoria(cliente, compras_filtradas)
-            cliente <-- categoria
-        deactivate categoria
+
+            alt condicion_normal && categoría_actual != ClienteNormal
+                cliente -> normal ** : crear
+                cliente -> cliente : set_categoria(normal)
+            end
+        deactivate cliente
+        note right : se evalúa que tipo de cateogía crear\nesa lógica la tiene el cliente
+
+        
         l <-- cliente
     deactivate cliente
 
@@ -155,6 +163,50 @@ deactivate l
 deactivate c
 
 @enduml
+
+
+@startuml cambiar_categoria_cliente_logica_en_cliente
+
+title Cambia a vip si las compras con > 5000 ultimo mes\nCambia a normal si hace 3 meses que no compra
+
+participant Libreria as l
+participant "cliente:Cliente" as cliente
+participant "categoria:Categoria" as categoria
+participant "vip:ClienteVIP" as vip
+participant "normal:ClienteNormal" as normal
+
+l -> cliente : cambiar_categoria()
+activate cliente
+    cliente -> cliente : compras_filtradas = obtener_compras_desde(fecha_inicio)
+    activate cliente
+        loop compra in compras
+            cliente -> compra : agregate_si_fecha(fecha_inicio, compras_filtradas)
+            activate compra
+            deactivate compra
+        end
+    deactivate cliente
+
+
+    cliente -> cliente : evaluar(compras_filtrada)
+    activate cliente
+        alt condicion_vip
+            cliente -> vip ** : crear
+            cliente -> cliente : asignar_categoria(vip)
+        end
+
+        alt condicion_normal
+            cliente -> normal ** : crear
+            cliente -> cliente : asignar_categoria(normal)
+        end
+    deactivate cliente
+    note right : se evalúa que tipo de cateogía crear\nesa lógica la tiene el cliente
+
+    
+    l <-- cliente
+deactivate cliente
+
+@enduml
+
 
 @startuml cambiar_categoria_cliente
 
