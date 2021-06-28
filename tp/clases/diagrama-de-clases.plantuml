@@ -108,6 +108,7 @@ together {
 
 }
 
+
 class Recomendacion {
     algo: str
 }
@@ -115,6 +116,7 @@ class Recomendacion {
 class Recomendacion {
     fecha: date
 }
+
 Recomendacion --> "(1..1)" Cliente : recomiendado
 Recomendacion --> "(1..1)" Libro : libro
 Cliente -u-> "(0..*)" Recomendacion : recomendaciones

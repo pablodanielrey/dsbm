@@ -1,0 +1,128 @@
+@startuml metamodelo_clases_herencia
+
+
+package Sistema {
+
+
+    class Libreria {
+        + iniciar_compra(cliente:Cliente) : List<Libro>
+        + seleccionar_libro(libro:Libro) : Compra
+        + confirmar_compra(compra:Compra)
+
+        - almacenar_en_sesion(cliente:Cliente)
+        - obtener_cliente_de_sesion() : Cliente
+        - buscar_libros_disponibles() : List<Libro>
+    }
+
+    Libreria -> "(0..*)" Oferta : ofertas
+
+    class Oferta {
+        fecha_inicio: date
+        fecha_fin: date
+        descuento: int
+
+        + calcular_descuento(compra:Compra)
+        - aplicar_decuento(compra:Compra)
+    }
+
+    class OfertaLanzamiento {
+    }
+
+    class OfertaTemporada {
+    }
+
+    class OfertaUltimosVolumenes {
+    }
+
+    class OfertaReedicion {
+    }
+
+    Oferta <|-- OfertaLanzamiento
+    Oferta <|-- OfertaReedicion
+    Oferta <|-- OfertaUltimosVolumenes
+    Oferta <|-- OfertaTemporada
+
+
+}
+
+
+package Metamodelo {
+
+    class ":Class" as c1 {
+        name = "Oferta"
+        isAbstract = False
+    }
+
+
+    class ":Property" as a1 {
+        name: String = "fecha_inicio"
+        isDerived: Boolean = False
+        isReadOnly: Boolean = False
+        aggregation: Boolean = None
+    }
+
+
+    class ":Property" as a2 {
+        name: String = "fecha_fin"
+        isDerived: Boolean = False
+        isReadOnly: Boolean = False
+        aggregation: Boolean = None
+    }
+
+    class ":Property" as a3 {
+        name = "descuento"
+        isDerived: Boolean = False
+        isReadOnly: Boolean = False
+        aggregation: Boolean = None
+    }
+
+    class ":PrimitiveType" as a3t {
+        name : String = "int"
+    }
+    a3 *--> a3t : type
+
+    c1 *--> a1 : ownedAttribute
+    c1 *--> a2 : ownedAttribute
+    c1 *--> a3 : ownedAttribute
+
+    class ":Class" as compra {
+        name: String = "Compra"
+        isAbstract: Boolean = False
+    }
+
+    class ":Operation" as m1 {
+        name = "calcular_descuento"
+        isQuery: Boolean = False
+        visibility: VisibilityKind = Public
+    }
+    c1 *--> m1 : ownedOperation
+
+    class ":Parameter" as m1_p1 {
+        name = "compra"
+        direction = ParameterDirectionKind = in
+    }
+
+    m1_p1 *--> compra : type
+    m1 *--> m1_p1 : ownedParameter
+    
+
+    class ":Operation" as m2 {
+        name = "aplicar_descuento"
+        isQuery: Boolean = False
+        visibility: VisibilityKind = Private
+    }
+    c1 *--> m2 : ownedOperation
+
+    class ":Parameter" as m2_p1 {
+        name = "compra"
+        direction = ParameterDirectionLind = in
+    }
+    m2_p1 *--> compra : type
+    m2 *--> m2_p1 : ownedParameter
+
+
+}
+
+
+
+@enduml
