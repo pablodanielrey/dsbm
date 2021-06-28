@@ -3,19 +3,6 @@
 
 package Sistema {
 
-
-    class Libreria {
-        + iniciar_compra(cliente:Cliente) : List<Libro>
-        + seleccionar_libro(libro:Libro) : Compra
-        + confirmar_compra(compra:Compra)
-
-        - almacenar_en_sesion(cliente:Cliente)
-        - obtener_cliente_de_sesion() : Cliente
-        - buscar_libros_disponibles() : List<Libro>
-    }
-
-    Libreria -> "(0..*)" Oferta : ofertas
-
     class Oferta {
         fecha_inicio: date
         fecha_fin: date
@@ -46,11 +33,12 @@ package Sistema {
 }
 
 
-package Metamodelo {
+package Metamodelo_Oferta {
+
 
     class ":Class" as c1 {
-        name = "Oferta"
-        isAbstract = False
+        name: String = "Oferta"
+        isAbstract: Boolean = False
     }
 
     class ":PrimitiveType" as date_type {
@@ -75,14 +63,14 @@ package Metamodelo {
 
 
     class ":Property" as a3 {
-        name = "descuento"
+        name: String = "descuento"
         isDerived: Boolean = False
         isReadOnly: Boolean = False
         aggregation: Boolean = None
     }
 
     class ":PrimitiveType" as a3t {
-        name : String = "int"
+        name: String = "int"
     }
     a3 *--> a3t : type
 
@@ -96,15 +84,15 @@ package Metamodelo {
     }
 
     class ":Operation" as m1 {
-        name = "calcular_descuento"
+        name: String = "calcular_descuento"
         isQuery: Boolean = False
         visibility: VisibilityKind = Public
     }
     c1 *--> m1 : ownedOperation
 
     class ":Parameter" as m1_p1 {
-        name = "compra"
-        direction = ParameterDirectionKind = in
+        name: String = "compra"
+        direction: ParameterDirectionKind = in
     }
 
     m1_p1 *--> compra : type
@@ -112,15 +100,15 @@ package Metamodelo {
     
 
     class ":Operation" as m2 {
-        name = "aplicar_descuento"
+        name: String = "aplicar_descuento"
         isQuery: Boolean = False
         visibility: VisibilityKind = Private
     }
     c1 *--> m2 : ownedOperation
 
     class ":Parameter" as m2_p1 {
-        name = "compra"
-        direction = ParameterDirectionLind = in
+        name: String = "compra"
+        direction: ParameterDirectionLind = in
     }
     m2_p1 *--> compra : type
     m2 *--> m2_p1 : ownedParameter
@@ -128,6 +116,63 @@ package Metamodelo {
 
 }
 
+package Metamodelo_Subclases {
+
+    class ":Class" as o1 {
+        name : String = "OfertaLanzamiento"
+        isAbstract: Boolean = False
+    }
+
+    class ":Generalization" as g1 {
+
+    }
+
+    o1 *-- g1 : generalization
+    g1 --> c1 : general
+
+
+
+    class ":Class" as o2 {
+        name : String = "OfertaTemporada"
+        isAbstract: Boolean = False
+    }
+
+    class ":Generalization" as g2 {
+
+    }
+
+    o2 *-- g2 : generalization
+    g2 --> c1 : general
+
+
+    class ":Class" as o3 {
+        name : String = "OfertaUltimosVolumenes"
+        isAbstract: Boolean = False
+    }
+
+    class ":Generalization" as g3 {
+
+    }
+
+    o3 *-- g3 : generalization
+    g3 --> c1 : general
+
+
+
+    class ":Class" as o4 {
+        name : String = "OfertaReedicion"
+        isAbstract: Boolean = False
+    }
+
+    class ":Generalization" as g4 {
+
+    }
+
+    o4 *-- g4 : generalization
+    g4 --> c1 : general
+
+
+}
 
 
 @enduml
