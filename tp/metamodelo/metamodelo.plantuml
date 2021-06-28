@@ -53,6 +53,9 @@ package Metamodelo {
         isAbstract = False
     }
 
+    class ":PrimitiveType" as date_type {
+        name: String = "date"
+    }
 
     class ":Property" as a1 {
         name: String = "fecha_inicio"
@@ -60,7 +63,7 @@ package Metamodelo {
         isReadOnly: Boolean = False
         aggregation: Boolean = None
     }
-
+    a1 *--> date_type : type
 
     class ":Property" as a2 {
         name: String = "fecha_fin"
@@ -68,6 +71,8 @@ package Metamodelo {
         isReadOnly: Boolean = False
         aggregation: Boolean = None
     }
+    a2 *--> date_type : type
+
 
     class ":Property" as a3 {
         name = "descuento"
