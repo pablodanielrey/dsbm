@@ -1,37 +1,39 @@
+*
 problemas para unificar los documentos.
 es complejo ir modificando cada uno de los diagramas.
 
-
+*
 es muy simple poner notas y sacarlas.
 simplifica sesiones de consultas
 
-
+*
 es muy simple generar alternativas para consulta.
 solo copy-paste
 
 --
-
+*
 muy complejo tener control del layout.
 
 ---
-
+*
 problemas para cuando se modifica en un diagrama de clases por ejemplo el modelo.
 llevar esos cambios al modelo de dominio y sincronizarlo.
 o cuando se realizan cambios en el modelo de dominio, llevar esos cambios al de clases.
 
 --
-
+*
 problema para agrupar distintos conjuntos de elementos en una zona del diagrama
 ej: libro, genero, editorial, ingreso, digitar, impreso.
 no se puede dejar en una zona del diagrama solos.
 
 ---
-
+*
 no es simple cambiar si se quiere visualizar varios diagramas a la vez.
 salvo abriendo ventanas distintas en distintos monitores por ejemplo.
 
 ---
 
+*
 me gustaría tener una forma de asociar requeriminetos de un documento de texto, ej el pdf del trabajo
 a partes del diagrama.
 o sea por ejemplo:
@@ -45,7 +47,7 @@ en los casos de uso poder asociarlo con que casos de uso son.
 en el caso de los diagramas de clase y dominio de sistema asociarlo con esos conceptos.
 
 --
-
+*
 la forma que existe de agregar notas a los diagramas no está buena para manejar consideraciones generales
 del diagrama.
 ej: dominio del sistema
@@ -56,13 +58,13 @@ otro ejemplo:
 la reserva está modelada como un tipo de compra.
 
 --
-
+*
 no es simple identificar las relaciones entre las entidades
 en determinados diagramas.
 hay que manualmente cambiar de color las flechas o cambiar los espesores.
 
 ---
-
+*
 no existe forma de dejar temas pendientes a analizar dentro del modelo.
 por ejemplo:
 que pasa si un lanzamiento de un libro, ofrecido para preventa no se consigue 
@@ -71,14 +73,14 @@ ese proceso influye al análisis del sistema y no hay forma de dejarlo
 anotado salvo en un archivo de texto.
 
 --
-
+*
 es muy complejo y produce errores ir desde el diagrama de secuencia agregando
 los métodos en el diagrama de clases.
 y también como se usa otra sintaxis al diagrama de dominio de sistema, es
 complejo cuando cambia algo en el de clases actualizarlo en el de dominio.
 
 --
-
+*
 con cada cambio del diagrmaa te cambia el layout.
 asi que las cosas que estaba acostumbrado a verlas en determinado lugar del diagrama
 hay que analizarlo nuevamente.
