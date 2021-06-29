@@ -1,0 +1,11 @@
+@startuml inclusión
+
+!include ejemplo_inclusión2.plantuml
+
+class Clase1 {
+
+}
+
+Clase2 <|-- Clase1
+
+@enduml

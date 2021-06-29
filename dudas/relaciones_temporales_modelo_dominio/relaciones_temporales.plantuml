@@ -1,8 +1,5 @@
 @startuml
 
-
-
-
 package "Asociación" {
     object Cliente {
         nombre: str
@@ -22,7 +19,7 @@ package "Asociación" {
         object ClienteVIP
     }
 
-    Cliente --- "1" Categoría
+    Cliente -- "1" Categoría
     note on link : "cardinalidad = 1 o = 2?"
 
     Categoría -d- ClienteNormal

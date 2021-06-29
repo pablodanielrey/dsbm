@@ -1,0 +1,7 @@
+@startuml inclusión2
+
+class Clase2 {
+    
+}
+
+@enduml

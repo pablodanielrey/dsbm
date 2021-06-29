@@ -1,4 +1,4 @@
-@startuml diagrama_de_clases
+@startuml diagrama_de_clases_copy
 
 
 together {
@@ -110,10 +110,15 @@ together {
 
 
 class Recomendacion {
+    algo: str
+}
+
+class Recomendacion {
     fecha: date
 }
 
-Recomendacion --> "(1..1)" Cliente : recomiendado
+Cliente "(1..1)" <-- Recomendacion : recomendado
+'Recomendacion --> "(1..1)" Cliente : recomendado
 Recomendacion --> "(1..1)" Libro : libro
 Cliente -u-> "(0..*)" Recomendacion : recomendaciones
 
@@ -204,9 +209,9 @@ together {
 }
 
 Compra -> "*" Libro : libro
-Compra <|-d- CompraStock
-Compra <|-d- Reserva
-Compra "(0..*)" <- Cliente : compras
+Compra -d- CompraStock
+Compra -d- Reserva
+Compra "(0..*)" <-[#blue,thickness=6] Cliente : compras
 
 
 class Libreria {
