@@ -1,7 +1,7 @@
 @startuml
 
 
-title c12 Comprar Libro - Fujo alternativo - Libro no disponible
+title c12 Comprar Libro - Fujo alternativo - Stock Insuficiente
 
 actor Cliente as c
 participant Sistema as s
